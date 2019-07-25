@@ -34,7 +34,7 @@ class MainContent extends React.Component {
         {this.state.questions.map(question => {
           return (
             <div className="question">
-              <h2> {question.Question}</h2>
+              <h2> {question.question}</h2>
               <h4> {question.answer}</h4>
             </div>
           );
