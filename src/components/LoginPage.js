@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
-import facebookIcon from "../images/facebookicon.png";
-import googleIcon from "../images/googleicon.png";
+// import facebookIcon from "../images/facebookicon.png";
+import FacebookLoginButton from "./FacebookLogin";
+import GoogleLoginButton from "./GoogleLogin";
 
 export class LoginForm extends React.Component {
   state = {
@@ -28,7 +29,7 @@ export class LoginForm extends React.Component {
       <form id="login-form" onSubmit={this.handleSubmit}>
         <img id="wallpaper" src={wallpaper} alt="wallpaper" />
         <div id="form">
-          <div id="logo-login-form-container" >
+          <div id="logo-login-form-container">
             <img src={logo} alt="logo" />
           </div>
           <div id="form-container">
@@ -36,44 +37,43 @@ export class LoginForm extends React.Component {
               <p id="fast-login-title">
                 Need quick login? Sign in with your social media account.
               </p>
-              <button className="login-button" id="facebook-login-btn">
-                <img className='social-media-icon' src={facebookIcon} alt="facebook-login" />
-                Sign In with Facebook
-              </button>
-              <button className="login-button" id="google-login-btn">
-                <img className='social-media-icon' src={googleIcon} alt="goole-login" />
-                Sign In with Google
-              </button>
-              <p id='agreement-sentence'>By signing up, you agree to our Terms of Service and Privacy Policy</p>
+              <FacebookLoginButton />
+              <GoogleLoginButton />
+              <p id="agreement-sentence">
+                By signing up, you agree to our Terms of Service and Privacy
+                Policy
+              </p>
             </div>
-            <div id='vertical-line'></div>
+            <div id="vertical-line" />
             <div id="signup-form">
               <h4>..or sign in using your email</h4>
-              <div className='inputbox-container'>
+              <div className="inputbox-container">
                 <input
                   className="inputbox"
-                  id='inputbox-email'
+                  id="inputbox-email"
                   placeholder="Email"
                   type="email"
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
               </div>
-              <div className='inputbox-container'>
+              <div className="inputbox-container">
                 <input
                   className="inputbox"
-                  id='inputbox-password'
+                  id="inputbox-password"
                   placeholder="Password"
                   type="password"
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
               </div>
-              <p id='already-have-an-account'>
-                Don't have an account yet? Sign up <Link to='/'>here.</Link>
+              <p id="already-have-an-account">
+                Don't have an account yet? Sign up <Link to="/">here.</Link>
               </p>
               <Link to="/Main">
-                <button id='sign-up-button' type="submit">Sign me in!</button>
+                <button id="sign-up-button" type="submit">
+                  Sign me in!
+                </button>
               </Link>
             </div>
           </div>

@@ -65,7 +65,7 @@ code {
 }
 
 .login-button {
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: white;
@@ -86,19 +86,33 @@ code {
   filter: brightness(100%);
 }
 
-#google-login-btn {
+.google-btn {
   background-color: #FF4E02;
+  color: white;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 300px;
+  line-height: 50px;
 }
 
-#facebook-login-btn {
-  background-color: #2A3EA7;
+.facebook-btn {
+  background-color: rgb(46, 69, 182);
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  width: 300px;
+  line-height: 50px;
 }
 
-.social-media-icon {
+#facebook-icon, #google-icon {
   float: left;
   margin: 0;
-  padding: 0;
+  padding: 5px;
 }
+
 
 #agreement-sentence {
   font-size: 12px;
@@ -182,10 +196,10 @@ h2 {
 #navbar {
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 20;
   background-color: white;
   width: 100%;
-  height: 70px;
+  height: 80px;
   opacity: 0.8;
   transition: 0.3s;
 }
@@ -225,26 +239,57 @@ h2 {
   border-bottom-color: rgb(68, 199, 199);
 }
 
-#dropdown-menu {
+#sidebar-container{
   left: 35px;
-  font-size: 56px;
+  font-size: 50px;
   position: fixed;
+  z-index: 10;
 }
 
-#dropdown-menu:hover {
+#sidebar-container:hover {
   cursor: pointer;
 }
 
 #more-button {
   padding: 0;
   position: fixed;
-  z-index: 2;
+  z-index: 11;
+}
+
+#more-button:hover {
+  cursor: pointer;
+}
+
+#sidebar {
+  font-family: 'Montserrat';
+  width: 400px;
+  top: 0;
+  bottom: 0;
+  left: -500px;
+  position: inherit;
+  z-index: 10;
+  background-color: rgb(70, 70, 70);
+  transition: 1s;
+  list-style: none;
+  color: white;
+}
+
+#grey-overlay {
+  background-color: grey;
+  width: 0;
+  position: fixed;
+  z-index: 9;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.8;
+  transition: 1s;
 }
 
 #profile-photo {
   width: 100px;
   display: block;
-  margin: 20px   auto;
+  margin: 20px auto;
   /* margin-left: 40px; */
 }
 
@@ -252,34 +297,15 @@ h6 {
   padding: 0;
   margin: 10px;
   text-align: center;
-}
-
-#dropdown-links-container {
-  border-radius: 2px;
-  margin: 0;
-  background-color: #595959;
   color: white;
-  position: fixed;
-  list-style-type: none;
-  left: 0;
-  top: 70px;
-  left: 0;
-  height: 100%;
-  padding: 0 0;
 }
 
 #categories-heading {
   font-size: 18px;
   padding-left: 30px;
-}
-
-.dropdown-links, .dropdown-links-sub {
-  width: 160px;
-  padding: 5px;
-  padding-left: 35  px;
-  padding-right: 200px;
-  font-size: 20px;
-  margin: 20px 0 0 0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 br {
@@ -287,25 +313,32 @@ br {
   padding: 
 }
 
-.dropdown-links-sub {
-  padding-left: 40px;
-  display: inline;
-}
-
-.dropdown-links-sub:hover, .dropdown-links:hover {
-  background-color: rgb(252, 95, 27);
-}
-
-#categories-heading {
-  text-align: center;
-  padding: 0 !important;
-}
-
 #category-links {
   list-style-type: none;
 }
 
-.dropdown-icons {
+.sidebar-links {
+  font-size: 20px;
+  padding: 20px 0 20px 40px;
+  margin: 0px 0;
+}
+
+.sidebar-links-sub-container {
+  width: 100%;
+}
+
+.sidebar-links-sub { 
+  font-size: 20px;
+  padding-left: 40px;
+  display: inline; 
+  right: 0;
+}
+
+.sidebar-links-sub-container:hover, .sidebar-links:hover {
+  background-color: #BC4646;
+}
+
+.sidebar-icons {
   margin-left: 40px;
 }
 
@@ -318,15 +351,17 @@ br {
 #askbar {
   width: 100%;
   height: 0;
-  top: 60px;
+  top: 80px;
   left: 0;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   background-color: rgb(222, 110, 110);
   transition: 1s;
+  box-shadow: 0 8px 8px rgb(172, 172, 172);
 }
 
 #askbox {
+  outline: none;
   height: 50%;
   width: 80%;
   margin: 50px 80px;
@@ -341,7 +376,7 @@ br {
   text-decoration: underline;
 }
 
-#sidebar {
+#side-content {
   width: 300px;
   left: 10%;
   position: fixed;
@@ -349,9 +384,11 @@ br {
 }
 
 #ask-button {
-  right: 5vw;
+  outline: none;
+  right: 50px;
   top: 23px;
-  position: inherit;
+  position: fixed;
+  z-index: 2;
   width: 100px;
   height: 30px;
   color: rgb(215, 106, 106);
@@ -362,9 +399,32 @@ br {
   transition: 0.2s;
 }
 
+#submit-question {
+  outline: none;
+  right: -165px;
+  top: 23px;
+  position: fixed;
+  z-index: 2;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(255, 110, 110);
+  color: white;
+  border-color: rgb(255, 110, 110);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.8s;
+}
+
 #ask-button:hover {
   color: white;;
   background-color: rgb(249, 120, 120);
+  cursor: pointer;
+}
+
+#submit-question:hover {
+  filter: brightness(150%);
+  cursor: pointer;
 }
 
 #main-content {
@@ -431,13 +491,6 @@ br {
 }
 
 @media only screen and (max-width: 600px) {
-  #dropdown-menu {
-    display: inline;
-  }
-  
-  #dropdown-menu-list, #navbar-links-container, #ask-button {
-    display: none;
-  }
 
   #user-profile {
     display: none;

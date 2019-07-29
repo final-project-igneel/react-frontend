@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
-import facebookIcon from "../images/facebookicon.png";
-import googleIcon from "../images/googleicon.png";
+import FacebookLoginButton from "./FacebookLogin";
+import GoogleLoginButton from "./GoogleLogin";
 
 export class LoginForm extends React.Component {
   state = {
@@ -36,14 +36,8 @@ export class LoginForm extends React.Component {
               <p id="fast-login-title">
                 Need quick login? Sign in with your social media account.
               </p>
-              <button className="login-button" id="facebook-login-btn">
-                <img className='social-media-icon' src={facebookIcon} alt="facebook-login" />
-                Sign In with Facebook
-              </button>
-              <button className="login-button" id="google-login-btn">
-                <img className='social-media-icon' src={googleIcon} alt="goole-login" />
-                Sign In with Google
-              </button>
+              <FacebookLoginButton />
+              <GoogleLoginButton />
               <p id='agreement-sentence'>By signing up, you agree to our Terms of Service and Privacy Policy</p>
             </div>
             <div id='vertical-line'></div>

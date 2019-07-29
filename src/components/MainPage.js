@@ -8,8 +8,8 @@ const MainPage = () => {
   return (
     <div className="container">
       <NavBar />
-      <div id='askbar'><input placeholder="What's your question?" id="askbox"></input></div>
-      <div id="sidebar">
+      <div id='askbar'><input id="askbox"></input></div>
+      <div id="side-content">
         <UserProfile />
         <FAQ />
       </div>
