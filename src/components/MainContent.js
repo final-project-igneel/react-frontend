@@ -1,5 +1,21 @@
 import React from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+//style buat react link
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: black;
+    transition: 0.1s;
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+
+    &:hover {
+        font-size: 20px;
+    }
+`;
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -34,8 +50,13 @@ class MainContent extends React.Component {
         {this.state.questions.map(question => {
           return (
             <div className="question">
-              <h2> {question.question}</h2>
-              <h4> {question.answer}</h4>
+              <StyledLink
+                to={`/Questions/${question.question_id}`}
+                style={{ textDecoration: "none" }}
+                >
+                <h2 id="FAQ"> {question.question}</h2>
+              </StyledLink>
+                {/* <h4> {question.answer}</h4> */}
             </div>
           );
         })}

@@ -13,7 +13,7 @@ class QAPage extends React.Component {
     const { id } = this.props.match.params;
 
     axios
-      .get(`http://localhost:4000/Questions/${id}`)
+      .get(`http://localhost:4000/FAQ/${id}`)
       .then(response => {
         // handle success
         this.setState({
