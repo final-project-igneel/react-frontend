@@ -1,17 +1,19 @@
 import React from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import MainPage from './components/MainPage';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import QAPage from "./components/QAPage";
+import SignupPage from './components/SignupPage'
+import LoginPage from './components/LoginPage'
 
 function App() {
   return (
     <React.Fragment>
       <BrowserRouter>
-        <NavBar />
         <Switch>
-          <Route exact  path={"/"} component={MainPage} />
+          <Route exact path={"/"} component={SignupPage} />
+          <Route exact path={"/Login"} component={LoginPage} />
+          <Route path={"/Main"} component={MainPage} />
           <Route path={"/FAQ/:id"} component={QAPage} />
         </Switch>
       </BrowserRouter>

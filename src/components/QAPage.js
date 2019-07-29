@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-
+import NavBar from './NavBar';
 class QAPage extends React.Component {
   constructor(props) {
     super(props);
@@ -32,6 +32,8 @@ class QAPage extends React.Component {
 
   render() {
     return (
+      <React.Fragment>
+        <NavBar />
       <div id="question-container">
         {this.state.question.map(Question => {
           return (
@@ -42,6 +44,7 @@ class QAPage extends React.Component {
           );
         })}
       </div>
+      </React.Fragment>
     );
   }
 }

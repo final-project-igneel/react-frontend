@@ -1,3 +1,7 @@
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,6 +16,164 @@ code {
     monospace;
 }
 
+#logo-login-form-container {
+  margin: 0;
+}
+
+#login-form {
+  width: 100%;
+  height: 100%;
+  background-color: #BC4646;
+}
+
+#form {
+  position: absolute;
+  z-index: 2;
+  background:rgba(255, 255, 255,0.85);
+  border-radius: 20px;
+  width: 60vw;
+  min-width: 700px;
+  left: 57%;
+  margin-left: -37.5%;
+  height: 80vh;
+  top: 70px;
+}
+
+#form, #fast-login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#form-container {
+  display: flex;
+  margin: 0;
+}
+
+#fast-login-title {
+  font-size: 18px;
+  margin-bottom: 5px;  
+}
+
+#fast-login {
+  float: left;
+  margin: 0 30px 0 30px;
+  width: 200px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.login-button {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: white;
+  width: 300px;
+  height: 50px;
+  line-height: 40px;
+  border-radius: 10px;
+  margin: 5px 0;
+  opacity: 1 !important;  
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  filter: brightness(135%);
+}
+
+.login-button:active {
+  filter: brightness(100%);
+}
+
+#google-login-btn {
+  background-color: #FF4E02;
+}
+
+#facebook-login-btn {
+  background-color: #2A3EA7;
+}
+
+.social-media-icon {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+#agreement-sentence {
+  font-size: 12px;
+}
+
+#vertical-line {
+  width: 2px;
+  height: 200px;
+  background-color: #BC4646;
+  margin: 50px 20px 0 40px;
+}
+
+#signup-form {
+  float: right;
+  width: 300px;
+  margin: 0;
+}
+
+.inputbox-name-container, .inputbox-container {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.inputbox-name {
+  width: 100%;
+  display: inline-block;
+  font-size: 17px;
+  padding: 5px;
+}
+
+#inputbox-firstname, #inputbox-lastname { 
+  width: 45%;
+}
+
+.inputbox {
+  width: 100%;
+  font-size: 17px;
+  padding: 5px;
+}
+
+#already-have-an-account {
+  float: right; 
+  font-size: 12px;
+  width: 130px;
+  padding: 0; 
+  margin: 0l
+}
+
+#sign-up-button {
+  float: left;
+  font-size: 16px;
+  padding: 10px;
+  width: 50%;
+  color: deepskyblue;
+  border-radius: 10px;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+#sign-up-button:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+#wallpaper {
+  position: fixed;
+  padding: 0;
+  width: 100%;
+  height: 90%;
+  z-index: 0;
+  margin: 30px 0;
+}
+
 h2 {
   margin-bottom: 20px;
   margin-top: 0;
@@ -22,11 +184,31 @@ h2 {
   top: 0;
   background-color: white;
   width: 100%;
+  height: 70px;
   opacity: 0.8;
+  transition: 0.3s;
+}
+
+#navbar:hover {
+  opacity: 1;
+}
+
+#logo {
+  width: 150px;
+  left: 65px;
+  position: fixed;
+}
+
+#logo:hover {
+  cursor: pointer;
 }
 
 #navbar-links-container {
   list-style: none;
+  margin-right: 10%;
+  position: fixed;
+  top: 0;
+  right: 10%;
 }
 
 #navbar-links {
@@ -35,11 +217,96 @@ h2 {
   border-bottom-style: solid;
   border-bottom-color: transparent;
   padding: 10px;
-  padding-bottom: 10px; 
+  padding-bottom: 20px;
 }
 
 #navbar-links:hover {
   border-bottom-color: rgb(68, 199, 199);
+}
+
+#dropdown-menu {
+  left: 35px;
+  font-size: 56px;
+  position: fixed;
+  z-index: 10;
+}
+
+#dropdown-menu:hover {
+  cursor: pointer;
+}
+
+#more-button {
+  padding: 0;
+  position: fixed;
+  z-index: 2;
+}
+
+#profile-photo {
+  width: 100px;
+  display: block;
+  margin: 20px   auto;
+  /* margin-left: 40px; */
+}
+
+h6 {
+  padding: 0;
+  margin: 10px;
+  text-align: center;
+}
+
+#dropdown-links-container {
+  border-radius: 2px;
+  margin: 0;
+  background-color: #595959;
+  color: white;
+  position: fixed;
+  list-style-type: none;
+  left: 0;
+  top: 70px;
+  left: 0;
+  height: 100%;
+  padding: 0 0;
+}
+
+#categories-heading {
+  font-size: 18px;
+  padding-left: 30px;
+}
+
+.dropdown-links, .dropdown-links-sub {
+  width: 160px;
+  padding: 5px;
+  padding-left: 35  px;
+  padding-right: 200px;
+  font-size: 20px;
+  margin: 20px 0 0 0;
+}
+
+br {
+  margin: 0;
+  padding: 
+}
+
+.dropdown-links-sub {
+  padding-left: 40px;
+  display: inline;
+}
+
+.dropdown-links-sub:hover, .dropdown-links:hover {
+  background-color: rgb(252, 95, 27);
+}
+
+#categories-heading {
+  text-align: center;
+  padding: 0 !important;
+}
+
+#category-links {
+  list-style-type: none;
+}
+
+.dropdown-icons {
+  margin-left: 40px;
 }
 
 .container {
@@ -48,11 +315,60 @@ h2 {
   display: flex;
 }
 
+#askbar {
+  width: 100%;
+  height: 0;
+  top: 60px;
+  left: 0;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(222, 110, 110);
+  transition: 1s;
+}
+
+#askbox {
+  height: 50%;
+  width: 80%;
+  margin: 50px 80px;
+  font-size: 60px;
+  background: transparent;
+  border-style: none;
+  color: white;
+}
+
+#askbox::placeholder {
+  color: white;
+  text-decoration: underline;
+}
 
 #sidebar {
   width: 300px;
-  right: 150px;
+  left: 10%;
   position: fixed;
+  z-index: 1;
+}
+
+#ask-button {
+  right: 5vw;
+  top: 23px;
+  position: inherit;
+  width: 100px;
+  height: 30px;
+  color: rgb(215, 106, 106);
+  border-color: rgb(215, 106, 106);
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+#ask-button:hover {
+  color: white;;
+  background-color: rgb(249, 120, 120);
+}
+
+#main-content {
+  margin-left: 40%;
 }
 
 #user-profile {
@@ -61,11 +377,12 @@ h2 {
   border-radius: 10px;
   margin-top: 80px;
   margin-bottom: 20px;
+  width: 20vw;
 }
 
 #user-photo {
-  width: 100px;
-  height: 100px;
+  width: 10vw;
+  height: 10vw;
   text-align: center;
   line-height: 100px;
   margin: 0 auto;
@@ -77,8 +394,8 @@ h2 {
   background-color: aliceblue;
   padding: 25px;
   border-radius: 10px;
+  width: 20vw;
 }
-
 
 #FAQ {
   margin-bottom: 15px;
@@ -89,22 +406,52 @@ h2 {
 }
 
 #FAQ:hover {
-  scale:1.2;
+  scale: 1.2;
 }
 
 #question-container {
-  width: 400px;
-  margin: 120px auto 0 auto;
+  width: 500px;
+  height: 250px;
   background-color: aliceblue;
   padding: 15px 30px;
   border-radius: 10px;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  z-index: 3;
 }
 
 #questions {
-  width: 550px;
+  width: 40vw;
   margin-top: 100px;
 }
 
 .question {
   margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  #dropdown-menu {
+    display: inline;
+  }
+  
+  #dropdown-menu-list, #navbar-links-container, #ask-button {
+    display: none;
+  }
+
+  #user-profile {
+    display: none;
+  }
+
+  #FAQs {
+    display: none;
+  }
+
+  #main-content {
+    margin: 0 auto;
+  }
+
+  #questions {
+    width: 60vw;
+  }
 }
