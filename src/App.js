@@ -16,7 +16,7 @@ function App() {
           <Route exact path={"/Login"} component={LoginPage} />
           <Route path={"/Main"} component={MainPage} />
           <Route path={"/FAQ/:id"} component={FAQPage} />
-          <Route path={"/Questions/:id"} component={QAPage} />
+          <Route path={"/threads/:id"} component={QAPage} />
         </Switch>
       </BrowserRouter>
     </React.Fragment>

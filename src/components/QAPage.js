@@ -1,23 +1,39 @@
 import axios from "axios";
 import React from "react";
-import NavBar from './NavBar';
+import NavBar from "./NavBar";
+import { css } from "@emotion/core";
+import FadeLoader from 'react-spinners/ScaleLoader';
+
+const override = css`
+  position: fixed;
+  margin-top: 30vh;
+  margin-left: 45vw;
+  border-color: red;
+`;
+
 class QAPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      question: []
+      question: {},
+      isLoading: false
     };
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    });
+
     const { id } = this.props.match.params;
 
     axios
-      .get(`http://localhost:4000/Questions/${id}`)
+      .get(`http://localhost:4000/threads/${id}`)
       .then(response => {
         // handle success
         this.setState({
-          question: response.data
+          question: response.data.data,
+          isLoading: false
         });
       })
       .catch(error => {
@@ -27,25 +43,34 @@ class QAPage extends React.Component {
       .finally(function() {
         // always executed
       });
-    console.log(this.state.question.question);
+    console.log(this.state.question);
   }
 
   render() {
-    return (
-      <React.Fragment>
-        <NavBar />
-      <div id="question-container">
-        {this.state.question.map(Question => {
-          return (
-              <React.Fragment>
-                <h1 id="question"> {Question.question}</h1>
-                <h3 id="answer"> {Question.answer}</h3>
-              </React.Fragment>
-          );
-        })}
-      </div>
-      </React.Fragment>
-    );
+    if (this.state.isLoading) {
+      return (
+        <div className="sweet-loading">
+          <FadeLoader
+            css={override}
+            sizeUnit={"px"}
+            height={150}
+            width={30}
+            color={"#BC4646"}
+            loading={this.state.loading}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <NavBar />
+          <div id="question-container">
+            <h1 id="question"> {this.state.question.title}</h1>
+            <h3 id="answer"> {this.state.question.input}</h3>
+          </div>
+        </React.Fragment>
+      );
+    }
   }
 }
 
