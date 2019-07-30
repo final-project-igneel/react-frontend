@@ -18,28 +18,30 @@ const StyledLink = styled(Link)`
 `;
 let display = false;
 let display2 = false;
-const signAndProperty = [
-  ["&equiv;", "-500px", "0", "", "black", "0",'ASK','-14vw'],
-  ["&times", "0", "300px", "What's on your mind today?", "white", "100%",'Cancel','14vw']
+const states = [
+  ["&equiv;", "-500px", "0", "", "black", "0",'ASK','-14vw','none','none'],
+  ["&times", "0", "300px", "What's on your mind today?", "white", "100%",'Cancel','14vw','solid','block']
 ];
 
 let toggleVisibility = () => {
   let select = elem => document.getElementById(elem);
   display = !display;
-  select("more-button").innerHTML = signAndProperty[+display][0];
-  select("sidebar").style.left = signAndProperty[+display][1];
-  select("more-button").style.color = signAndProperty[+display][4];
-  select("grey-overlay").style.width = signAndProperty[+display][5];
+  select("more-button").innerHTML = states[+display][0];
+  select("sidebar").style.left = states[+display][1];
+  select("more-button").style.color = states[+display][4];
+  select("grey-overlay").style.width = states[+display][5];
 };
 
 let toggleAskBar = () => {
   let select = elem => document.getElementById(elem);
   display2 = !display2;
-  select("askbar").style.height = signAndProperty[+display2][2];
-  select("askbox").placeholder = signAndProperty[+display2][3];
+  select("askbar").style.height = states[+display2][2];
+  select("askbox").style.display = states[+display2][9];
+  select("askbox").placeholder = states[+display2][3];
+  select('askbox').style.borderBottomStyle = states[+display2][8];
   select("askbox").value = "";
-  select('ask-button').innerHTML = signAndProperty[+display2][6];
-  select('submit-question').style.right = signAndProperty[+display2][7];
+  select('ask-button').innerHTML = states[+display2][6];
+  select('submit-question').style.right = states[+display2][7];
 };
 
 const NavBar = () => {
