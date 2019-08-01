@@ -250,18 +250,10 @@ h2 {
   z-index: 10;
 }
 
-#sidebar-container:hover {
-  cursor: pointer;
-}
-
 #more-button {
   padding: 0;
   position: fixed;
   z-index: 11;
-}
-
-#more-button:hover {
-  cursor: pointer;
 }
 
 #sidebar {
@@ -517,14 +509,69 @@ br {
 .comments-box {
   width: inherit;
   height: 0;
-  border-style: solid;
-  border-width: 1px;
+  /* border-style: solid;
+  border-width: 1px; */
   transition: 1s;
   overflow: scroll;
 }
-/* #like-button: {
-  transform: scale(1.2)
-} */
+
+.numberOfLikes {
+  font-size: 30px;
+  margin-right: 20px;
+  margin-left: 5px;
+  vertical-align:top;
+}
+
+#comment-button:hover, #like-button:hover, #more-button:hover, #sidebar-container:hover, .comment-submit-button:hover {
+  cursor: pointer;
+}
+
+.individual-comment {
+  background-color: rgb(249, 249, 249);
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.comments-firstname {
+  padding: 10px;
+}
+
+.comments-comment {
+  padding: 5px;
+}
+
+.input-comment {
+  width: 95%;
+  font-size: 18px;
+  display: block;
+  margin: 20px auto 0 auto;
+  resize: none;
+  overflow: auto;
+  height: 70px;
+  outline: none;
+}
+
+.comment-submit-button-area {
+  background-color: rgb(184, 184, 184);
+  width: 97%;
+  margin: 0 auto;
+  height: 25px;
+}
+
+.comment-submit-button {
+  width: 65px;
+  color: white;
+  background-color: #BC4646;
+  outline: none;
+  float: right;
+  margin: 3px;
+}
+
+.comment-submit-button:active {
+  background-color: rgb(106, 41, 41);
+}
+
+
 @media only screen and (max-width: 600px) {
   #form-container {
     display: flex;

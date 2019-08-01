@@ -19,8 +19,8 @@ const StyledLink = styled(Link)`
 let display = false;
 let display2 = false;
 const states = [
-  ["&equiv;", "-500px", "0", "", "black", "0",'ASK','-14vw','none','none'],
-  ["&times", "0", "300px", "What's on your mind today?", "white", "100%",'Cancel','14vw','solid','block']
+  ["&equiv;", "-500px", "0", "", "black", "0",'ASK','-140px','none','none'],
+  ["&times", "0", "300px", "What's on your mind today?", "white", "100%",'Cancel','165px','solid','block']
 ];
 
 let toggleVisibility = () => {
