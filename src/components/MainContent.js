@@ -24,7 +24,7 @@ const StyledLink = styled(Link)`
     &:active {
         text-decoration: none;
     }
-
+`;
 
 class MainContent extends React.Component {
     constructor(props) {
