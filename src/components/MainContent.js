@@ -25,10 +25,6 @@ const StyledLink = styled(Link)`
         text-decoration: none;
     }
 
-    &:hover {
-        font-size: 20px;
-    }
-`;
 
 class MainContent extends React.Component {
     constructor(props) {
