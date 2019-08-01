@@ -1,5 +1,4 @@
 import React from "react";
-import FAQ from './FAQ';
 import MainContent from './MainContent';
 import UserProfile from './UserProfile';
 import NavBar from './NavBar';
@@ -11,7 +10,7 @@ const MainPage = () => {
       <div id='askbar'><input id="askbox"></input></div>
       <div id="side-content">
         <UserProfile />
-        <FAQ />
+        {/* <FAQ /> */}
       </div>
       <div id='main-content'>
         <MainContent />
