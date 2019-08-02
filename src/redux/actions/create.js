@@ -57,7 +57,7 @@ export const createComment = payload => {
     return dispatch => {
         dispatch(createCommentBegin());
         axios
-            .post(`${process.env.REACT_APP_API_URL}/Comments/create`, payload)
+            .post(`${process.env.REACT_APP_API_URL}/comments/create`, payload)
             .then(response => {
                 console.info("response:", response);
                 dispatch(createCommentSuccess(response));
