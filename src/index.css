@@ -631,3 +631,54 @@ br {
     width: 60vw;
   }
 }
+
+
+/* ABOUT CSS */
+
+.About {
+  text-align: center;
+}
+
+.content {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 35px;
+  font-family: monserrat;
+}
+
+hr {
+  border-color: red;
+  border-width: 2px;
+  
+}
+h3 {
+  color: red;
+}
+.ourTeam {
+  background-color:white;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  width: 100%;
+}
+
+.AboutContent {
+  float: left;
+  margin-bottom: 70px;
+}
+.AboutContent2 {
+  float: left;
+  margin-top: 50px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+/* ABOUT CSS */
