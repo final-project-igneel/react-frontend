@@ -2,13 +2,14 @@ import { combineReducers } from "redux";
 import signinReducer from "./signin";
 import signupReducer from "./signup";
 import threads from "./threads";
-import createThread from "./create";
+import { createThread, createComment } from "./create";
 
 const rootReducers = combineReducers({
     signin: signinReducer,
     signup: signupReducer,
     threads,
-    createThread
+    createThread,
+    createComment
 });
 
 export default rootReducers;

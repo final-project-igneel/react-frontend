@@ -5,7 +5,7 @@ const initialState = {
     success: false
 };
 
-const createThread = (state = initialState, action) => {
+export const createThread = (state = initialState, action) => {
     switch (action.type) {
         case "CREATE_THREAD_BEGIN": {
             return {
@@ -35,4 +35,32 @@ const createThread = (state = initialState, action) => {
     }
 };
 
-export default createThread;
+export const createComment = (state = initialState, action) => {
+    switch (action.type) {
+        case "CREATE_COMMENT_BEGIN": {
+            return {
+                ...state,
+                isLoading: true,
+                latestError: null
+            };
+        }
+        case "CREATE_COMMENT_SUCCESS": {
+            return {
+                ...state,
+                isLoading: false,
+                latestResponse: action.payload.response,
+                success: true
+            };
+        }
+        case "CREATE_COMMENT_ERROR": {
+            return {
+                ...state,
+                isLoading: false,
+                latestError: action.payload.error,
+                latestResponse: null
+            };
+        }
+        default:
+            return state;
+    }
+};

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
-// import facebookIcon from "../images/facebookicon.png";
+import facebookIcon from "../images/facebookicon.png";
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
 import { signin } from "../redux/actions/signin";
