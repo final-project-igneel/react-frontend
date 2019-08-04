@@ -356,24 +356,71 @@ br {
   box-shadow: 0 8px 8px rgb(172, 172, 172);
 }
 
+
+.category-chooser-button {
+  background-color: transparent;
+  width: 130px;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  display: none;
+  border-radius: 10px;
+  margin: 0 10px;
+  border-color: white;
+  transition: 0.2s;
+  outline: none;
+}
+
+#pick-a-category {
+  color: white;
+  margin: 30px 30px 15px 30px;
+  display: none;
+}
+
+#choose-category-container {
+  margin-left: 5vw;
+}
+
+.category-chooser-button:hover {
+  background-color: white;
+  color: rgb(222, 110, 110);
+}
+
 #askbox {
   display: none;
   outline: none;
   height: 70px;
   width: 80%;
-  margin: 90px 0 0 80px;
-  font-size: 60px;
+  margin: 20px 0 0 80px;
+  font-size: 40px;
   background: transparent;
   border-style: none;
   color: white;
   padding-bottom: 0;
   box-sizing: content-box;
+  overflow: hidden;
 }
 
 #askbox::placeholder {
   color: rgb(255, 255, 255);
   /* text-decoration: underline; */
   opacity: 0.8;
+}
+
+#askbox-details {
+  border: none;
+  margin: 60px 90px;
+  resize: none;
+  width: 700px;
+  overflow: scroll;
+  font-size: 16px;
+  /* display: none; */
+  height: 0;
+  padding: 0;
+  position: inherit;
+  z-index: inherit;
+  transition: 1s;
 }
 
 #side-content {
@@ -522,7 +569,7 @@ br {
   vertical-align:top;
 }
 
-#comment-button:hover, #like-button:hover, #more-button:hover, #sidebar-container:hover, .comment-submit-button:hover {
+.category-chooser-button:hover, .question-button:hover, #comment-button:hover, #like-button:hover, #more-button:hover, #sidebar-container:hover, .comment-submit-button:hover {
   cursor: pointer;
 }
 
@@ -678,3 +725,54 @@ br {
     width: 60vw;
   }
 }
+
+
+/* ABOUT CSS */
+
+.About {
+  text-align: center;
+}
+
+.content {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+h2 {
+  font-size: 35px;
+  font-family: monserrat;
+}
+
+hr {
+  border-color: red;
+  border-width: 2px;
+  
+}
+h3 {
+  color: red;
+}
+.ourTeam {
+  background-color:white;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  width: 100%;
+}
+
+.AboutContent {
+  float: left;
+  margin-bottom: 70px;
+}
+.AboutContent2 {
+  float: left;
+  margin-top: 50px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+/* ABOUT CSS */

@@ -34,7 +34,8 @@ class Question extends React.Component {
     super(props);
     this.getUpdatedCommentBox = this.getUpdatedCommentBox.bind(this);
     this.state = {
-      numberOfLikes: this.props.data.likedThread.split(",").length,
+      numberOfLikes: this.props.data.likedThread.split(",").length - 1,
+      numberOfComments: 0,
       usersWhoLikedTheQuestion: this.props.data.likedThread.split(","),
       likeButtonClicked: false,
       commentButtonClicked: false,
@@ -44,6 +45,7 @@ class Question extends React.Component {
   }
 
   componentDidMount() {
+    this.getCommentData();
     this.setState({
       likeButtonClicked: this.state.usersWhoLikedTheQuestion.includes(
         temporaryUserId
@@ -65,6 +67,11 @@ class Question extends React.Component {
           comments: response.data.commentData.filter(
             question => question.threadid === this.props.data.id
           )
+        });
+      })
+      .then(() => {
+        this.setState({
+          numberOfComments: this.state.comments.length
         });
       })
       .catch(error => console.log(error));
@@ -138,12 +145,12 @@ class Question extends React.Component {
           }
           onClick={this.toggleCommentButton}
         />
+        <span className="numberOfLikes">{this.state.numberOfComments}</span>
         <Comment
-          ref={`comment-${this.props.data.id}`}
           threadid={this.props.data.id}
           userid={temporaryUserId}
-          commentsData = {this.state.comments}
-          getUpdatedCommentBox = {this.getUpdatedCommentBox}
+          commentsData={this.state.comments}
+          getUpdatedCommentBox={this.getUpdatedCommentBox}
         />
       </div>
     );

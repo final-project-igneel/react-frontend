@@ -12,8 +12,6 @@ const override = css`
   border-color: red;
 `;
 
-
-
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
