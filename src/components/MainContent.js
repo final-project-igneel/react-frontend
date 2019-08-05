@@ -44,7 +44,6 @@ class MainContent extends React.Component {
       .finally(function() {
         // always executed
       });
-    console.log(this.state.questions);
   }
 
   render() {

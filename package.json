@@ -16,9 +16,11 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-spinners": "^0.5.13",
+    "react-youtube": "^7.9.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "sweetalert2": "^8.15.1"
   },
   "scripts": {
     "start": "react-scripts start",

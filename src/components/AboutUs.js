@@ -1,11 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
-import BigetronAbout from "../src/images/BigetronAboutUs.png";
-import ArrowDown from "../src/images/arrowDown.png";
-import GithubIcon from "./images/Github.png";
-import LinkinIcon from "./images/Linkin.png";
-import Photo from "./images/photoA.png";
-import Logo from "./images/logoGF.png";
+import BigetronAbout from "../images/BigetronAboutUs.png";
+// import ArrowDown from "../images/arrowDown.png";
+import GithubIcon from "../images/facebookicon.png";
+import LinkinIcon from "../images/googleicon.png";
+import Photo from "../images/logo.png";
+import Logo from "../images/logo.png";
 
 const AboutUs = () => {
     return (
@@ -20,11 +20,11 @@ const AboutUs = () => {
                     />
                 </div>
                 <div>
-                    <img
+                    {/* <img
                         src={ArrowDown}
                         className='ArrowDown'
                         alt='Arrowdown'
-                    />
+                    /> */}
                 </div>
             </div>
             <div>

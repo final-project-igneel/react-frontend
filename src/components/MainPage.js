@@ -1,10 +1,14 @@
 import React from "react";
 import MainContent from "./MainContent";
-import UserProfile from "./UserProfile";
+// import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
 import { extendAskBar } from "../helpers/index";
 import axios from "axios";
-import {toggleAskBar} from '../helpers/index'
+import { toggleAskBar } from "../helpers/index";
+import Swal from "sweetalert2";
+import NewsItem from "./NewsItem";
+// import FAQ from "./FAQ";
+import Videos from './Youtube'
 
 const temporaryUserId = "5";
 class MainPage extends React.Component {
@@ -49,7 +53,7 @@ class MainPage extends React.Component {
     });
   };
 
-  handleSubmit = async() => {
+  handleSubmit = async () => {
     if (this.state.inputBoxDetails === "") {
       alert("Please add more details to your question");
     } else {
@@ -61,7 +65,12 @@ class MainPage extends React.Component {
           userid: temporaryUserId
         })
         .then(
-          alert('Submitted'),
+          Swal.fire({
+            title: "Nice!",
+            text: "Your question has been submitted!",
+            type: "success",
+            confirmButtonColor: "#de6e6e"
+          }),
           this.setState({
             inputBoxTitle: ""
           })
@@ -107,13 +116,30 @@ class MainPage extends React.Component {
             placeholder="Describe your question in more details"
           />
         </div>
-        <div id="side-content">
-          <UserProfile />
-          {/* <FAQ /> */}
-        </div>
+        {/* <div id="side-content">
+            <UserProfile />
+            <FAQ />
+          </div> */}
         <div id="main-content">
-          <MainContent ref='mainContent' />
+          <div>
+          
+          <MainContent />
         </div>
+        <div id="news-container">
+          <h3 id="today-technology">Today on Technology</h3>
+          <a
+            href="http://newsapi.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p id="powered-newsapi">Powered by NewsAPI</p>
+          </a>
+          <div id="news-items">
+            <NewsItem />
+            <Videos />
+          </div>
+        </div>
+      </div>
       </div>
     );
   }

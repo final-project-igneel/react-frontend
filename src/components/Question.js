@@ -113,7 +113,7 @@ class Question extends React.Component {
       })
 
       .then(response => {
-        response.status(200);
+        
       })
       .catch(error => console.log(error));
   };

@@ -47,7 +47,7 @@ const NavBar = (props) => {
           </div>
           <hr width="70%" />
           <li className="sidebar-links">My Profile</li>
-          <li className="sidebar-links">FAQs</li>
+          <Link to={'/About_Us'}><li className="sidebar-links">About Us</li></Link>
         </div>
         <div id="grey-overlay" onClick={toggleVisibility} />
       </div>

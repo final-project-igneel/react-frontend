@@ -7,7 +7,8 @@ import FAQPage from "./components/FAQPage";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import { Provider } from "react-redux";
-import store from "./redux/store";
+import store from "./redux/store.js";
+import AboutUs from './components/AboutUs';
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                         <Route path={"/Main"} component={MainPage} />
                         <Route path={"/FAQ/:id"} component={FAQPage} />
                         <Route path={"/threads/:id"} component={QAPage} />
+                        <Route path={"/About_Us"} component={AboutUs} />
                     </Switch>
                 </BrowserRouter>
             </React.Fragment>

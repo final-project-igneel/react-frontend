@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-
+// import { connect } from "react-redux";
 import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
 // import facebookIcon from "../images/facebookicon.png";
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
-import { signin } from "../redux/actions/signin";
 
 export class LoginForm extends React.Component {
     state = {
@@ -91,7 +89,4 @@ export class LoginForm extends React.Component {
     }
 }
 
-export default connect(
-    null,
-    { signin }
-)(LoginForm);
+export default LoginForm

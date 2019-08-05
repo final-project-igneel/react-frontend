@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-
 class Comment extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +37,6 @@ class Comment extends React.Component {
           setTimeout(() => {
             elem.scrollTop = elem.scrollHeight;
           },1000)
-          //   elem.scrollIntoView({behavior: "smooth"})
-          // .then(() => this.el.scrollIntoView({behavior: "smooth"}))
         })
         .catch(error => console.log(error));
   
