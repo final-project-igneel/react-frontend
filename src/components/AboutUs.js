@@ -1,11 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
-import BigetronAbout from "../src/images/BigetronAboutUs.png";
-import ArrowDown from "../src/images/arrowDown.png";
-import GithubIcon from "./images/Github.png";
-import LinkinIcon from "./images/Linkin.png";
-import Photo from "./images/photoA.png";
-import Logo from "./images/logoGF.png";
+import BigetronAbout from "../images/BigetronAboutUs.png";
+import ArrowDown from "../images/arrowDown.png";
+import GithubIcon from "../images/Github.png";
+import LinkinIcon from "../images/Linkin.png";
+import Photo from "../images/photoA.png";
+import Logo from "../images/logoGF.png";
 
 const AboutUs = () => {
     return (

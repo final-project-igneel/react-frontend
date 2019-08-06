@@ -18,7 +18,7 @@ export const signin = data => dispatch => {
             // message.success(`signin succeed as ${res.data.user.firstName}`, 1);
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             message.error("signin failed", 1);
         });
 };
