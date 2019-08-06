@@ -250,18 +250,10 @@ h2 {
   z-index: 10;
 }
 
-#sidebar-container:hover {
-  cursor: pointer;
-}
-
 #more-button {
   padding: 0;
   position: fixed;
   z-index: 11;
-}
-
-#more-button:hover {
-  cursor: pointer;
 }
 
 #sidebar {
@@ -314,7 +306,6 @@ h6 {
 
 br {
   margin: 0;
-  padding: 
 }
 
 #category-links {
@@ -350,6 +341,7 @@ br {
   max-width: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: center;
 }
 
 #askbar {
@@ -364,18 +356,50 @@ br {
   box-shadow: 0 8px 8px rgb(172, 172, 172);
 }
 
+
+.category-chooser-button {
+  background-color: transparent;
+  width: 130px;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  display: none;
+  border-radius: 10px;
+  margin: 0 10px;
+  border-color: white;
+  transition: 0.2s;
+  outline: none;
+}
+
+#pick-a-category {
+  color: white;
+  margin: 30px 30px 15px 30px;
+  display: none;
+}
+
+#choose-category-container {
+  margin-left: 5vw;
+}
+
+.category-chooser-button:hover {
+  background-color: white;
+  color: rgb(222, 110, 110);
+}
+
 #askbox {
   display: none;
   outline: none;
   height: 70px;
   width: 80%;
-  margin: 90px 0 0 80px;
-  font-size: 60px;
+  margin: 20px 0 0 80px;
+  font-size: 40px;
   background: transparent;
   border-style: none;
   color: white;
   padding-bottom: 0;
   box-sizing: content-box;
+  overflow: hidden;
 }
 
 #askbox::placeholder {
@@ -384,13 +408,81 @@ br {
   opacity: 0.8;
 }
 
+#askbox-details {
+  border: none;
+  margin: 60px 90px;
+  resize: none;
+  width: 700px;
+  overflow: scroll;
+  font-size: 16px;
+  /* display: none; */
+  height: 0;
+  padding: 0;
+  position: inherit;
+  z-index: inherit;
+  transition: 1s;
+}
+
 #side-content {
   width: 300px;
-  left: 10%;
+  left: 5%;
+  margin-top: 20px;
   position: fixed;
   z-index: 1;
 }
 
+#videos-list-container {
+  position:fixed;
+  top:400px;
+  left: 60vw;
+}
+
+#videos-list {
+  height: 250px;
+  overflow: scroll;
+}
+.videos-items {
+  width: 300px;
+  height: 130px;
+  margin: 10px 0;
+}
+#news-container {
+  position: fixed;
+  top:100px;
+  left: 60vw;
+}
+#today-technology {
+  margin:10px 0;
+}
+
+#powered-newsapi {
+  color: gray;
+  margin: 10px 0;
+}
+#news-items {
+  height: 200px;
+  width:280px;
+  overflow: scroll;
+}
+.article-item {
+  margin: 30px 0;
+}
+
+.article-photo {
+  width: 80px;
+  height:50px;
+  float: left;
+  margin-right: 10px;
+}
+.article-link {
+  color: black;
+  text-decoration: none;
+}
+
+.article-title {
+  font-size: 14px;
+  font-weight: bold;
+}
 #ask-button {
   outline: none;
   right: 50px;
@@ -436,7 +528,8 @@ br {
 }
 
 #main-content {
-  margin-left: 40%;
+  /* position: fixed;*/
+  margin-right: 350px;
 }
 
 #user-profile {
@@ -445,7 +538,7 @@ br {
   border-radius: 10px;
   margin-top: 80px;
   margin-bottom: 20px;
-  width: 20vw;
+  width: 15vw;
 }
 
 #user-photo {
@@ -517,14 +610,71 @@ br {
 .comments-box {
   width: inherit;
   height: 0;
-  border-style: solid;
-  border-width: 1px;
+  /* border-style: solid;
+  border-width: 1px; */
   transition: 1s;
   overflow: scroll;
 }
-/* #like-button: {
-  transform: scale(1.2)
-} */
+
+.numberOfLikes {
+  font-size: 30px;
+  margin-right: 20px;
+  margin-left: 5px;
+  vertical-align:top;
+}
+
+.category-chooser-button:hover, .question-button:hover, #comment-button:hover, #like-button:hover, #more-button:hover, #sidebar-container:hover, .comment-submit-button:hover {
+  cursor: pointer;
+}
+
+.individual-comment {
+  background-color: rgb(249, 249, 249);
+  margin: 10px auto;
+  padding: 5px;
+}
+
+.comments-firstname {
+  padding: 10px;
+}
+
+.comments-comment {
+  padding: 5px;
+}
+
+.input-comment {
+  width: 95%;
+  font-size: 18px;
+  display: block;
+  margin: 20px auto 0 auto;
+  resize: none;
+  overflow: auto;
+  height: 70px;
+  outline: none;
+}
+
+.comment-submit-button-area {
+  background-color: rgb(184, 184, 184);
+  width: 97%;
+  margin: 0 auto;
+  height: 25px;
+}
+
+.comment-submit-button {
+  width: 65px;
+  color: white;
+  background-color: #BC4646;
+  outline: none;
+  float: right;
+  margin: 3px;
+}
+
+.comment-submit-button:active {
+  background-color: rgb(106, 41, 41);
+}
+
+@media only screen and (max-width: 1100px) {
+}
+
 @media only screen and (max-width: 600px) {
   #form-container {
     display: flex;

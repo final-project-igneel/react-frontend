@@ -12,6 +12,7 @@ const override = css`
     border-color: red;
 `;
 
+<<<<<<< HEAD
 //style buat react link
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -26,6 +27,8 @@ const StyledLink = styled(Link)`
     }
 `;
 
+=======
+>>>>>>> b8380db596f9f64adf4baef4cce4847f6dbe3578
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
@@ -35,10 +38,30 @@ class MainContent extends React.Component {
         };
     }
 
+<<<<<<< HEAD
     componentDidMount() {
+=======
+    axios
+      .get(`http://gadget-fraqs.herokuapp.com/threads`)
+      .then(response => {
+        // handle success
+        console.log(response.data);
+>>>>>>> b8380db596f9f64adf4baef4cce4847f6dbe3578
         this.setState({
             isLoading: true
         });
+<<<<<<< HEAD
+=======
+      })
+      .catch(error => {
+        // handle error
+        console.log(error);
+      })
+      .finally(function() {
+        // always executed
+      });
+  }
+>>>>>>> b8380db596f9f64adf4baef4cce4847f6dbe3578
 
         axios
             .get(`http://localhost:4000/threads`)

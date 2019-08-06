@@ -6,6 +6,7 @@ import CommentClicked from "../images/commentButtonRed.svg";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import Comment from "./Comment";
 
 //style buat react link
 const StyledLink = styled(Link)`
@@ -26,20 +27,25 @@ const StyledLink = styled(Link)`
 `;
 
 //nanti diganti pas pakai JWT
-const temporaryUserId = "dhila";
+const temporaryUserId = "5";
 
 class Question extends React.Component {
   constructor(props) {
     super(props);
+    this.getUpdatedCommentBox = this.getUpdatedCommentBox.bind(this);
     this.state = {
-      numberOfLikes: this.props.data.likedThread.split(",").length,
+      numberOfLikes: this.props.data.likedThread.split(",").length - 1,
+      numberOfComments: 0,
       usersWhoLikedTheQuestion: this.props.data.likedThread.split(","),
       likeButtonClicked: false,
-      comments: []
+      commentButtonClicked: false,
+      comments: [],
+      commentBoxText: ""
     };
   }
 
   componentDidMount() {
+    this.getCommentData();
     this.setState({
       likeButtonClicked: this.state.usersWhoLikedTheQuestion.includes(
         temporaryUserId
@@ -49,22 +55,41 @@ class Question extends React.Component {
     });
   }
 
-  toggleCommentButton = () => {
-    document.getElementById(`comments-box-${this.props.data.id}`).style.height =
-      "200px";
-     
+  getUpdatedCommentBox() {
+    this.getCommentData();
+  }
+
+  getCommentData = () => {
     axios
-    .get(`http://localhost:4000/comments/${this.props.data.id}`)
-    .then(response => {
-      this.setState({
-        comments: response.data
+      .get(`http://gadget-fraqs.herokuapp.com/comments/${this.props.data.id}`)
+      .then(response => {
+        this.setState({
+          comments: response.data.commentData.filter(
+            question => question.threadid === this.props.data.id
+          )
+        });
       })
-      console.log(response.data);
-    })
-    .catch(error => console.log(error)); 
+      .then(() => {
+        this.setState({
+          numberOfComments: this.state.comments.length
+        });
+      })
+      .catch(error => console.log(error));
   };
 
-  
+  toggleCommentButton = () => {
+    const height = this.state.commentButtonClicked ? "0" : "300px";
+    document.getElementById(
+      `comments-box-${this.props.data.id}`
+    ).style.height = height;
+
+    this.setState({
+      commentButtonClicked: !this.state.commentButtonClicked
+    });
+
+    this.getCommentData();
+  };
+
   toggleLikeButton = () => {
     const incrementValue = this.state.likeButtonClicked ? -1 : 1;
     let users = this.state.usersWhoLikedTheQuestion;
@@ -75,21 +100,20 @@ class Question extends React.Component {
       users.push(temporaryUserId);
     }
 
-    console.log(users);
     this.setState({
       likeButtonClicked: !this.state.likeButtonClicked,
       numberOfLikes: this.state.numberOfLikes + incrementValue
     });
 
     axios
-      .put(`http://localhost:4000/threads/${this.props.data.id}`, {
+      .put(`http://gadget-fraqs.herokuapp.com/threads/${this.props.data.id}`, {
         questionId: this.props.data.id,
         usersId: users.toString(),
         userId: temporaryUserId
       })
 
       .then(response => {
-        console.log("Question is liked!");
+        
       })
       .catch(error => console.log(error));
   };
@@ -111,21 +135,23 @@ class Question extends React.Component {
           src={this.state.likeButtonClicked ? Clicked : NotClicked}
           onClick={this.toggleLikeButton}
         />
-        <span>{this.state.numberOfLikes}</span>
+        <span className="numberOfLikes">{this.state.numberOfLikes}</span>
         <img
           alt="comment-button"
           id="comment-button"
           className="question-button"
-          src={CommentNotClicked}
+          src={
+            this.state.commentButtonClicked ? CommentClicked : CommentNotClicked
+          }
           onClick={this.toggleCommentButton}
         />
-        <div className="comments-box" id={`comments-box-${this.props.data.id}`}>
-          {this.state.comments.map((comment,index) => (
-              <h4>
-                {comment.firstName} {comment.comment}
-              </h4>
-          ))}
-        </div>
+        <span className="numberOfLikes">{this.state.numberOfComments}</span>
+        <Comment
+          threadid={this.props.data.id}
+          userid={temporaryUserId}
+          commentsData={this.state.comments}
+          getUpdatedCommentBox={this.getUpdatedCommentBox}
+        />
       </div>
     );
   }
