@@ -14,6 +14,9 @@ export class LoginForm extends React.Component {
         email: "",
         password: ""
     };
+    componentDidMount(){
+        console.log(this.props);
+      }
 
     handleChange = event => {
         this.setState({
@@ -26,7 +29,8 @@ export class LoginForm extends React.Component {
         this.props.signin({
             email: this.state.email,
             password: this.state.password
-        });
+        })
+    
     };
 
     render() {

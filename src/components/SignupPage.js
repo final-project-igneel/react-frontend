@@ -14,9 +14,9 @@ export class SignUp extends React.Component {
     password: "",
     confirmPassword: ""
   };
+
   componentDidMount(){
     console.log(this.props);
-    
   }
 
   handleChange = event => {
