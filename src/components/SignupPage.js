@@ -4,23 +4,44 @@ import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
+import axios from 'axios'
 
-export class LoginForm extends React.Component {
+export class SignUp extends React.Component {
   state = {
+    firstName: "",
+    lastName: "",
     email: "",
-    password: ""
+    password: "",
+    confirmPassword: ""
   };
+  componentDidMount(){
+    console.log(this.props);
+    
+  }
 
   handleChange = event => {
     this.setState({
-      email: event.target.email,
-      password: event.target.password
+      [event.target.name]: event.target.value
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    alert(`Email: ${this.state.email}`);
+    axios.post('https://gadget-fraqs.herokuapp.com/users/signup', {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password
+    }).then(response =>{
+      console.log(response);
+      if(response.status === 201){
+this.props.history.push('/Login')
+      }
+      
+    }).catch(error => {
+      console.log(error);
+      
+    })
   };
 
   render() {
@@ -46,18 +67,20 @@ export class LoginForm extends React.Component {
               <div className='inputbox-name-container'>
                 <input
                   className="inputbox-name"
+                  name="firstName"
                   id='inputbox-firstname'
                   placeholder="Firstname"
                   type="text"
-                  value={this.state.email}
+                  value={this.state.firstName}
                   onChange={this.handleChange}
                 />
                 <input
                   className="inputbox-name"
                   id='inputbox-lastname'
                   placeholder='Lastname'
+                  name="lastName"
                   type="text"
-                  value={this.state.password}
+                  value={this.state.lastName}
                   onChange={this.handleChange}
                 />
               </div>
@@ -67,6 +90,7 @@ export class LoginForm extends React.Component {
                   id='inputbox-email'
                   placeholder="Email"
                   type="email"
+                  name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
                 />
@@ -76,8 +100,9 @@ export class LoginForm extends React.Component {
                   className="inputbox"
                   id='inputbox-password'
                   placeholder="Password"
+                  name="password"
                   type="password"
-                  value={this.state.email}
+                  value={this.state.password}
                   onChange={this.handleChange}
                 />
               </div>
@@ -87,15 +112,14 @@ export class LoginForm extends React.Component {
                   id='inputbox-password'
                   placeholder="Confirm Password"
                   type="password"
-                  value={this.state.email}
+                  name="confirmPassword"
+                  value={this.state.confirmPassword}
                   onChange={this.handleChange}
                 />
               </div>
               <p id='already-have-an-account'>
                 Already have an account? Sign in <Link to='/Login'>here.</Link>              </p>
-              <Link to="/Main">
                 <button id='sign-up-button' type="submit">Sign me up!</button>
-              </Link>
             </div>
           </div>
         </div>
@@ -104,4 +128,4 @@ export class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm;
+export default SignUp;
