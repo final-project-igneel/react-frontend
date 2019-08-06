@@ -448,6 +448,8 @@ br {
 }
 #news-container {
   position: fixed;
+  height: 500px;
+  overflow: scroll;
   top:100px;
   left: 60vw;
 }
