@@ -10,7 +10,7 @@ export const signin = (data) => {
             .then((res) => {
                 console.log(res);
 
-                history.push("/Main");
+               
                 // window.localStorage.token = res.data.token;
                 // dispatch({
                 //     type: "signin",
@@ -22,6 +22,9 @@ export const signin = (data) => {
                 // });
                 // console.log(res);
                 // message.success(`signin succeed as ${res.data.user.firstName}`, 1);
+            }).then(() => {
+                history.push("/Main");
+                window.location.reload();
             })
             .catch((err) => {
                 // console.log(err);
