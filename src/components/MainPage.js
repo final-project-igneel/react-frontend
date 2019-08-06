@@ -1,4 +1,5 @@
 import React from "react";
+import jwt from "jsonwebtoken"
 import MainContent from "./MainContent";
 // import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
@@ -21,6 +22,13 @@ class MainPage extends React.Component {
             inputBoxDetails: ""
         };
     }
+    componentDidMount(){
+        const decoded = jwt.decode(localStorage.getItem("token"))
+        console.log(decoded);
+        console.log(decoded.users.firstName);
+        
+        
+    };
 
     categoryChooser = (id) => {
         let arrayButtons = [0, 0, 0];
@@ -76,7 +84,7 @@ class MainPage extends React.Component {
                     })
                 )
                 .catch((error) => console.log(error));
-            this.refs.mainContent.componentDidMount();
+            this.refs.mainContent.componentDidMount()
         }
     };
 
