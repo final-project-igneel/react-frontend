@@ -35,7 +35,7 @@ export class SignUp extends React.Component {
     }).then(response =>{
       console.log(response);
       if(response.status === 201){
-this.props.history.push('/Login')
+      this.props.history.push('/Login')
       }
       
     }).catch(error => {
