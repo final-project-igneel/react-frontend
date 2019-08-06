@@ -61,7 +61,7 @@ class Question extends React.Component {
 
   getCommentData = () => {
     axios
-      .get(`http://localhost:4000/comments/${this.props.data.id}`)
+      .get(`http://gadget-fraqs.herokuapp.com/comments/${this.props.data.id}`)
       .then(response => {
         this.setState({
           comments: response.data.commentData.filter(
@@ -106,7 +106,7 @@ class Question extends React.Component {
     });
 
     axios
-      .put(`http://localhost:4000/threads/${this.props.data.id}`, {
+      .put(`http://gadget-fraqs.herokuapp.com/threads/${this.props.data.id}`, {
         questionId: this.props.data.id,
         usersId: users.toString(),
         userId: temporaryUserId

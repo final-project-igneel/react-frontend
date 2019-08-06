@@ -59,7 +59,7 @@ class MainPage extends React.Component {
     } else {
       toggleAskBar();
       await axios
-        .post("http://localhost:4000/threads/create", {
+        .post("http://gadget-fraqs.herokuapp.com/threads/create", {
           title: this.state.inputBoxTitle,
           input: this.state.inputBoxDetails,
           userid: temporaryUserId
@@ -123,7 +123,7 @@ class MainPage extends React.Component {
         <div id="main-content">
           <div>
           
-          <MainContent />
+          <MainContent ref='mainContent'/>
         </div>
         <div id="news-container">
           <h3 id="today-technology">Today on Technology</h3>

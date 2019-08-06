@@ -28,7 +28,7 @@ class MainContent extends React.Component {
     });
 
     axios
-      .get(`http://localhost:4000/threads`)
+      .get(`http://gadget-fraqs.herokuapp.com/threads`)
       .then(response => {
         // handle success
         console.log(response.data);

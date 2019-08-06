@@ -22,7 +22,7 @@ class Comment extends React.Component {
     } else {
       console.log(this.state.commentBoxText)
       axios
-        .post(`http://localhost:4000/comments/create`, {
+        .post(`http://gadget-fraqs.herokuapp.com/comments/create`, {
           userid: this.props.userid,
           threadid: this.props.threadid,
           comment: this.state.commentBoxText
