@@ -1,50 +1,38 @@
-import React from 'react';
-import YouTube from 'react-youtube';
-import FadeLoader from "react-spinners/ScaleLoader";
+import React from "react";
 
-const videoIds = ['SKZrTKAS80M', 'GtQPwbftSLg', 'RGKh0zKg28k', 'ULYHJ5bnBFY', 'sXLdIYL30tw', 'iHJ16hD4ysk', 'xahb_0e0U3s']
+var youtube = ["q2MJNnzLIv0", "ooZFIoCr25o", "3X9DC3VjXak","4HgKa3WB5HY" ,"we9JpIJmGag" ,"TeSXhVvdpK8", "rvK2eedlaXY" , "uyU5rdJcd8U" , "0S4368avqGg", "N-9v4rYDzpA", "sMVNZ2SUCRs", "sJK67XXE_Rg", "k-5sfRE5gTw" , "xDLHnGSvbA0" , "kQDU5yj7SLo", "ep_qOxZJq-U", "D6fHHmBYJco", "OiAV8TAMiC0", "nudWWJ255q0","6ul_2XUnxDo", "xDLHnGSvbA0", "w2fFfLlIzck", "eefdeQymnQY", "w2FkpJMMvoM", "TY4s35uULg4"];
 
-class Videos extends React.Component {
-    render() {
-        return(
-            <div id='videos-list-container'>
-                <h3 id="today-technology">Related videos</h3>
-                <div id='videos-list'>
-                    {videoIds.map((videoId,index) => {
-                        return (
-                            <Video id={videoId} key={index} />
-                        )
-                    })}
-                </div>
-            </div>
-        )
-    }
-}
 
-class Video extends React.Component {
-    render() {
-      const opts = {
-        height: '390',
-        width: '640',
-        playerVars: { // https://developers.google.com/youtube/player_parameters
-          autoplay: 0
-        }
-      };
-  
-      return (
-        <YouTube
-          videoId={this.props.id}
-          opts={opts}
-          onReady={this._onReady}
-          className='videos-items'
-        />
-      );
-    }
-  
-    _onReady(event) {
-      // access to player in all event handlers via event.target
-      event.target.pauseVideo();
-    }
-  }
-  
+var index = Math.floor(Math.random() * youtube.length);
+var index2 = Math.floor(Math.random() * youtube.length);
+const Videos = () => {
+    return (
+        <div  id='video'>
+        <div>
+            <h3>Random Video</h3>
+            <iframe
+                title="randomvideo"
+                width='300'
+                height='200'
+                src={`http://www.youtube.com/embed/${youtube[index]}`}
+                allow = "autoplay=1"
+                frameborder='0'
+                allowfullscreen
+            />
+        </div>
+        <div>
+            <iframe
+                title="randomvideo"
+                width='300'
+                height='200'
+                src={`http://www.youtube.com/embed/${youtube[index2]}`}
+                autoplay="1"
+                frameborder='0'
+                allowfullscreen
+            />
+        </div>
+        </div>
+    );
+};
+
   export default Videos;
