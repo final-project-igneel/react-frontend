@@ -7,8 +7,12 @@ import FAQPage from "./components/FAQPage";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import { Provider } from "react-redux";
-import store from "./redux/store.js";
+
 import AboutUs from './components/AboutUs';
+
+import configureStore from './redux/store'
+
+const store = configureStore()
 
 function App() {
     return (

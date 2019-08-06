@@ -450,9 +450,15 @@ br {
   position: fixed;
   height: 500px;
   overflow: scroll;
+  overflow: -moz-hidden-unscrollable;
   top:100px;
   left: 60vw;
 }
+
+#news-container::-webkit-scrollbar { width: 0 !important }
+
+#news-container { overflow: -moz-scrollbars-none; }
+
 #today-technology {
   margin:10px 0;
 }
