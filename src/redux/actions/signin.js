@@ -9,7 +9,7 @@ export const signin = (data) => {
             .post(`${process.env.REACT_APP_API_URL}/users/signin`, data)
             .then((res) => {
                 console.log(res);
-                
+                localStorage.setItem("token", res.data.data.token)
                
                 // window.localStorage.token = res.data.token;
                 // dispatch({
