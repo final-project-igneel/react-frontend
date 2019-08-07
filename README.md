@@ -111,6 +111,21 @@ create-react-app .
 - Make sure all pages are still accessible
 - Install and use Redux and React Redux
 
+
+## Design
+
+Figma: https://www.figma.com/file/xHh7L9OdeJcizlk6J6x1GE/FINAL-PROJECT?node-id=0%3A1
+![Design 001](./assets/design/001design.jpeg)
+![Design 002](./assets/design/002design.jpeg)
+![Design 003](./assets/design/003design.jpeg)
+![Design 004](./assets/design/004design.jpeg)
+![Design 005](./assets/design/005design.jpeg)
+![Design 006](./assets/design/006design.jpeg)
+![Design 007](./assets/design/007design.jpeg)
+![Design 008](./assets/design/008design.jpeg)
+![Design 009](./assets/design/009design.jpeg)
+
+
 ## License
 
 MIT License
