@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Gadget Fraqs
 
-## Available Scripts
+![Design 000](./assets/design/000designlogo.jpeg)
 
-In the project directory, you can run:
+##Tech Stack
+- React: Component-based web application
+    - React Router: To manage multiple pages/routes of the application
+- Redux: For managing global state in store
+    - Redux Devtools extension: To inspect all Redux-related things
+    - Redux Logger: To log our actions in the console
+    - Redux Thunk: For asynchronous operations in reducer
+- Emotion: To style the components flexibly
+- Axios: To fetch data to/from the backend
+- JWT Decoder: To decode JWT that is saved in the browserStorage
 
-### `npm start`
+## Create
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   Design using Figma
+-   Fontend built with React and Redux
+-   Backend built Node, Express, Sequelize (MySQL) and JWT Auth
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Link
 
-### `npm test`
+-   Organization:
+    -   https://github.com/final-project-igneel
+-   Repositories:
+    -   https://github.com/final-project-igneel/react-frontend
+    -   https://github.com/final-project-igneel/api-backend
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+-   Responsive UI
+-   Database migration and data seeding
+-   User authentication using JSON Web Tokens
+-   Can login via Facebook and Google
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Design
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Figma: https://www.figma.com/file/xHh7L9OdeJcizlk6J6x1GE/FINAL-PROJECT?node-id=0%3A1
+![Design 001](./assets/design/001design.jpeg)
+![Design 002](./assets/design/002design.jpeg)
+![Design 003](./assets/design/003design.jpeg)
+![Design 004](./assets/design/004design.jpeg)
+![Design 005](./assets/design/005design.jpeg)
+![Design 006](./assets/design/006design.jpeg)
+![Design 007](./assets/design/007design.jpeg)
+![Design 008](./assets/design/008design.jpeg)
+![Design 009](./assets/design/009design.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-   MIT License
