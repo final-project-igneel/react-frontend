@@ -24,7 +24,7 @@ export const signin = (data) => {
                 // message.success(`signin succeed as ${res.data.user.firstName}`, 1);
             }).then(() => {
                 history.push("/Main");
-                // window.location.reload();
+                window.location.reload();
             })
             .catch((err) => {
                 // console.log(err);
