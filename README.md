@@ -1,68 +1,116 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Gadget-Fraqs Frontend with React & Redux
 
-## Available Scripts
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/b455ba2f-b8b4-4637-baa2-9bd90f146de4/deploy-status)](https://app.netlify.com/sites/ideabyte/deploys) -->
 
-In the project directory, you can run:
+Check other documentations here:
 
-### `npm start`
+- [React Documentation](README_REACT.md)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- React: To component-based web application
+  - React Helmet: To change the title when we change the page in Router
+  - React Hot loader: To reload the changes in development without full page reload
+  - React Router: To manage multiple pages/routes of the application
+- Redux: To managing global state in store
+  - Redux Devtools extension: To inspect all Redux behavior
+  - Redux Logger: To log our actions in the console
+  - Redux Thunk: To asynchronous operations in reducer
+- CSS in JS: To style the components without CSS file
+  - Emotion: To style the components flexibly with `styled` or other ways
+- Axios: To request/fetch data to/from the backend API server
+- Draft.js: To make the `textarea` with WYSIWYG editor
+- Filestack: To upload and retrieve images
+- JWT Decoder: To decode JWT that is saved in the browserStorage
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Before start the code we need to setup npm. 
+```
+$ npm install
+```
+<hr>
+Then install the packages.<br>
+These are our packages.
 
-### `npm run build`
+```txt
+$ npm install react redux redux-thunk react-redux axios react-router-dom
+```
+Then you install another styling like emotion or else
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```txt
+npm install emotion/core emotion/style
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+After which, change your variable values.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
 
-### `npm run eject`
+```sh
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Then open `http://localhost:3000`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This repo is configured to use `react-app-rewired`, not a regular `react-scripts`. The benefit is to hot reload the changes in the components quickly, without a full page reload.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Building
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+yarn build
+npm install -g serve
+serve -s build
+```
 
-## Learn More
+Then open `http://localhost:5000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In deployment server such as Netlify, this build process should run automatically and the port is assigned by them (not `5000`).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deploying
 
-### Code Splitting
+You can use Netlify to deploy. After which, you have to configure the environment variables as well.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```txt
+REACT_APP_BACKEND_API_URL=https://gadget-fraqs.herokuapp.com
+```
 
-### Analyzing the Bundle Size
+## Project Development Steps
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```sh
+mkdir projectname-frontend
+cd projectname-frontend
 
-### Making a Progressive Web App
+npm install -g create-react-app
+create-react-app .
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Make sure the React app setup is done.
+- Change the `title` in `index.html`
+- Delete all unnecessary contents and components
+- Start your React server
+- Commit and push your changes as necessary
+- Deploy on Netlify
+- Change the site name in site settings
+  - Example: gadget-fraqs
+- Make sure the web app deployed successfully
+  - Example: https://gadget-fraqs.netlify.com
+- Setup custom domain if needed
+- Setup deploy contexts so it can check all branch deploys
+  - So in pull request, it automatically check the changes
+- Setup prerendering
+  - https://www.netlify.com/docs/prerendering
+  - https://www.netlify.com/blog/2017/09/26/how-to-build-a-serverless-seo-friendly-react-blog
+- Put all assets into `public` folder
+- Structure the `src` to be like:
+  - `pages`: contains page name
+  - `layouts`: contains layout name, to be used with `pages`
+  - `components`: contains variety of components
+- Install and use React Router
+- Install and use styling package such as `@emotion/styled`
+- Implement all pages and components
+- Make sure all pages are still accessible
+- Install and use Redux and React Redux
 
-### Advanced Configuration
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+MIT License
