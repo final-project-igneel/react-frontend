@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import MainPage from "./components/mainPage";
+import MainPage from "./components/MainPage";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import QAPage from "./components/QAPage";
 import FAQPage from "./components/FAQPage";

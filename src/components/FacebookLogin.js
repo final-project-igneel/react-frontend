@@ -7,9 +7,6 @@ import { signin } from "../redux/actions/signin";
 import axios from "axios";
 
 class FacebookLoginButton extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
   responseFacebook = response => {
     console.log(response);
 
@@ -53,7 +50,7 @@ class FacebookLoginButton extends React.Component {
     return (
       <FacebookLogin
         appId="623657398142214"
-        // autoLoad={true}
+        autoLoad={false}
         fields="name,email,picture"
         callback={this.responseFacebook}
         cssClass="facebook-btn login-button"

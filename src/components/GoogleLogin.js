@@ -32,9 +32,8 @@ const GoogleLoginButton = props => {
               password: responseGoogle.googleId
             })
             .then(response => {
-              console.log(response);
               if (response.status === 201) {
-                this.props.history.push("/main");
+                console.log('Operation successful')
               }
             })
             .catch(error => {
@@ -59,7 +58,6 @@ const GoogleLoginButton = props => {
         onFailure={responseGoogle => console.log(responseGoogle)}
         cookiePolicy={"single_host_origin"}
       />
-      {console.log(props)}
     </div>
   );
 };
