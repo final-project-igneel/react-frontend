@@ -156,7 +156,10 @@ class MainPage extends React.Component {
       );
     } else {
         return(
-            <h1>You are not logged in</h1>
+            <div>
+                <h1>You will be redirected to the main page</h1>
+                <h2>If nothing happens in 5 seconds, please log in again</h2>
+            </div>
         )
     }
   }

@@ -36,7 +36,7 @@ class FacebookLoginButton extends React.Component {
                   password: response.id
                 })
                 .then(res => {
-                  localStorage.setItem('user-id', res.data.create.id)
+                  localStorage.setItem('user-id', res.data.data.users.id)
                   window.location.reload();
                   this.props.history.push("/main");
                 })
