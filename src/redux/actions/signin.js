@@ -8,20 +8,18 @@ export const signin = (data) => {
         axios
             .post(`${process.env.REACT_APP_API_URL}/users/signin`, data)
             .then((res) => {
-                console.log(res);
-
-               
-                // window.localStorage.token = res.data.token;
-                // dispatch({
-                //     type: "signin",
-                //     payload: {
-                //         token: res.data.token,
-                //         email: res.data.user.email,
-                //         name: res.data.user.firstName
-                //     }
-                // });
-                // console.log(res);
-                // message.success(`signin succeed as ${res.data.user.firstName}`, 1);
+                window.localStorage.setItem('user-data',JSON.stringify(res.data.data.users))
+                dispatch({
+                    type: "signin",
+                    payload: {
+                        token: res.data.token,
+                        email: res.data.user.email,
+                        name: res.data.user.firstName
+                    }
+                });
+                message.success(`signin succeed as ${res.data.user.firstName}`, 1);
+                history.push("/Main");
+                window.location.reload();
             }).then(() => {
                 history.push("/Main");
                 window.location.reload();

@@ -6,7 +6,6 @@ import logo from "../images/logo.png";
 // import facebookIcon from "../images/facebookicon.png";
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
-
 import { signin } from "../redux/actions/signin";
 
 export class LoginForm extends React.Component {
@@ -30,7 +29,6 @@ export class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         })
-    
     };
 
     render() {

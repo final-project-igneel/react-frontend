@@ -1,5 +1,5 @@
 import React from "react";
-import jwt from "jsonwebtoken"
+// import jwt from "jsonwebtoken"
 import MainContent from "./MainContent";
 // import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
@@ -11,143 +11,155 @@ import NewsItem from "./NewsItem";
 // import FAQ from "./FAQ";
 import Videos from "./Youtube";
 
-const temporaryUserId = "5";
+let temporaryUserId = "-1"; //nanti diganti pas pakai JWT
+if (JSON.parse(localStorage.getItem("user-data")) != null) {
+  temporaryUserId = parseInt(JSON.parse(localStorage.getItem("user-data")).id)
+}
 class MainPage extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            categoryChosen: "",
-            categoryChooserButton: [0, 0, 0],
-            inputBoxTitle: "",
-            inputBoxDetails: ""
-        };
+  constructor() {
+    super();
+    this.state = {
+      categoryChosen: "",
+      categoryChooserButton: [0, 0, 0],
+      inputBoxTitle: "",
+      inputBoxDetails: ""
+    };
+  }
+  componentDidMount() {
+    // const decoded = jwt.decode(localStorage.getItem("token"))
+    // console.log(decoded);
+    // console.log(decoded.users.firstName);
+  }
+
+  categoryChooser = id => {
+    let arrayButtons = [0, 0, 0];
+    arrayButtons[id - 1] = 1;
+
+    this.setState({
+      categoryChooserButton: arrayButtons
+    });
+    let elems = document.getElementsByClassName("category-chooser-button");
+    for (var i = 0; i < elems.length; i += 1) {
+      elems[i].style.backgroundColor = "transparent";
+      elems[i].style.color = "white";
     }
-    componentDidMount(){
-        const decoded = jwt.decode(localStorage.getItem("token"))
-        console.log(decoded);
-        console.log(decoded.users.firstName);
-        
-        
-    };
 
-    categoryChooser = (id) => {
-        let arrayButtons = [0, 0, 0];
-        arrayButtons[id - 1] = 1;
+    let elem = document.getElementById(`category-chooser-button-${id}`);
+    elem.style.color = "rgb(222, 110, 110)";
+    elem.style.backgroundColor = "white";
+  };
 
-        this.setState({
-            categoryChooserButton: arrayButtons
-        });
-        let elems = document.getElementsByClassName("category-chooser-button");
-        for (var i = 0; i < elems.length; i += 1) {
-            elems[i].style.backgroundColor = "transparent";
-            elems[i].style.color = "white";
-        }
+  handleChange = event => {
+    extendAskBar(event.target.value === "");
+    this.setState({
+      inputBoxTitle: event.target.value
+    });
+  };
 
-        let elem = document.getElementById(`category-chooser-button-${id}`);
-        elem.style.color = "rgb(222, 110, 110)";
-        elem.style.backgroundColor = "white";
-    };
+  handleChangeDetails = event => {
+    this.setState({
+      inputBoxDetails: event.target.value
+    });
+  };
 
-    handleChange = (event) => {
-        extendAskBar(event.target.value === "");
-        this.setState({
-            inputBoxTitle: event.target.value
-        });
-    };
+  handleSubmit = async () => {
+    if (this.state.inputBoxDetails === "") {
+      alert("Please add more details to your question");
+      console.log(temporaryUserId)
+    } else {
+      toggleAskBar();
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/threads/create`, {
+          title: this.state.inputBoxTitle,
+          input: this.state.inputBoxDetails,
+          userid: temporaryUserId
+        })
+        .then(
+          Swal.fire({
+            title: "Nice!",
+            text: "Your question has been submitted!",
+            type: "success",
+            confirmButtonColor: "#de6e6e"
+          }),
+          this.setState({
+            inputBoxTitle: ""
+          })
+        )
+        .catch(error => console.log(error));
+      this.refs.mainContent.componentDidMount();
+    }
+  };
 
-    handleChangeDetails = (event) => {
-        this.setState({
-            inputBoxDetails: event.target.value
-        });
-    };
-
-    handleSubmit = async () => {
-        if (this.state.inputBoxDetails === "") {
-            alert("Please add more details to your question");
-        } else {
-            toggleAskBar();
-            await axios
-                .post("http://gadget-fraqs.herokuapp.com/threads/create", {
-                    title: this.state.inputBoxTitle,
-                    input: this.state.inputBoxDetails,
-                    userid: temporaryUserId
-                })
-                .then(
-                    Swal.fire({
-                        title: "Nice!",
-                        text: "Your question has been submitted!",
-                        type: "success",
-                        confirmButtonColor: "#de6e6e"
-                    }),
-                    this.setState({
-                        inputBoxTitle: ""
-                    })
-                )
-                .catch((error) => console.log(error));
-            this.refs.mainContent.componentDidMount()
-        }
-    };
-
-    render() {
-        return (
-            <div className='container'>
-                <NavBar handleSubmit={this.handleSubmit} />
-                <div id='askbar'>
-                    <div id='choose-category-container'>
-                        <h3 id='pick-a-category'>Pick a category</h3>
-                        <button
-                            id='category-chooser-button-1'
-                            className='category-chooser-button'
-                            onClick={() => this.categoryChooser("1")}>
-                            Phones
-                        </button>
-                        <button
-                            id='category-chooser-button-2'
-                            className='category-chooser-button'
-                            onClick={() => this.categoryChooser("2")}>
-                            Laptops
-                        </button>
-                        <button
-                            id='category-chooser-button-3'
-                            className='category-chooser-button'
-                            onClick={() => this.categoryChooser("3")}>
-                            PCs
-                        </button>
-                    </div>
-                    <input id='askbox' onChange={this.handleChange} />
-                    <textarea
-                        onChange={this.handleChangeDetails}
-                        id='askbox-details'
-                        placeholder='Describe your question in more details'
-                    />
-                </div>
-                {/* <div id="side-content">
-            <UserProfile />
-            <FAQ />
-          </div> */}
-                <div id='main-content'>
-                    <div>
-                        <MainContent ref='mainContent' />
-                    </div>
-                    <div id='news-container'>
-                        <Videos />
-                        <h3 id='today-technology'>Today on Technology</h3>
-                        <a
-                            href='http://newsapi.org'
-                            target='_blank'
-                            rel='noopener noreferrer'>
-                            <p id='powered-newsapi'>Powered by NewsAPI</p>
-                        </a>
-                        <div />
-                        <div id='news-items'>
-                            <NewsItem />
-                            <Videos />
-                        </div>
-                    </div>
-                </div>
+  render() {
+    if (temporaryUserId !== "-1") {
+      return (
+        <div className="container">
+          <NavBar handleSubmit={this.handleSubmit} />
+          <div id="askbar">
+            <div id="choose-category-container">
+              <h3 id="pick-a-category">Pick a category</h3>
+              <button
+                id="category-chooser-button-1"
+                className="category-chooser-button"
+                onClick={() => this.categoryChooser("1")}
+              >
+                Phones
+              </button>
+              <button
+                id="category-chooser-button-2"
+                className="category-chooser-button"
+                onClick={() => this.categoryChooser("2")}
+              >
+                Laptops
+              </button>
+              <button
+                id="category-chooser-button-3"
+                className="category-chooser-button"
+                onClick={() => this.categoryChooser("3")}
+              >
+                PCs
+              </button>
             </div>
-        );
+            <input id="askbox" onChange={this.handleChange} />
+            <textarea
+              onChange={this.handleChangeDetails}
+              id="askbox-details"
+              placeholder="Describe your question in more details"
+            />
+          </div>
+          {/* <div id="side-content">
+                <UserProfile />
+                <FAQ />
+              </div> */}
+          <div id="main-content">
+            <div>
+              <MainContent ref="mainContent" />
+            </div>
+            <div id="news-container">
+              <Videos />
+              <h3 id="today-technology">Today on Technology</h3>
+              <a
+                href="http://newsapi.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p id="powered-newsapi">Powered by NewsAPI</p>
+              </a>
+              <div />
+              <div id="news-items">
+                <NewsItem />
+                <Videos />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    } else {
+        return(
+            <h1>You are not logged in</h1>
+        )
     }
+  }
 }
 
 export default MainPage;

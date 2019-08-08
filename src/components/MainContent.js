@@ -27,7 +27,7 @@ class MainContent extends React.Component {
         });
 
         axios
-            .get(`http://gadget-fraqs.herokuapp.com/threads`)
+            .get(`${process.env.REACT_APP_API_URL}/threads`)
             .then((response) => {
                 // handle success
                 console.log(response.data);
@@ -46,6 +46,7 @@ class MainContent extends React.Component {
     }
 
     render() {
+        console.log(this.state.questions)
         if (this.state.isLoading) {
             return (
                 <div className='sweet-loading'>
