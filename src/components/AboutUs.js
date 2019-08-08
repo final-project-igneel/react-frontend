@@ -1,10 +1,11 @@
 import React from "react";
 import NavBar from "./NavBar";
 import BigetronAbout from "../images/BigetronAboutUs.png";
-// import ArrowDown from "../images/arrowDown.png";
+
+
 import GithubIcon from "../images/facebookicon.png";
 import LinkinIcon from "../images/googleicon.png";
-import Photo from "../images/logo.png";
+// import Photo from "../images/logo.png";
 import Logo from "../images/logo.png";
 
 const AboutUs = () => {
@@ -55,11 +56,16 @@ const AboutUs = () => {
                     <td>
                         <tr>
                             <div className='AboutContent'>
-                                <img
-                                    classname='OurPhoto'
-                                    src={Photo}
-                                    alt='Adit'
+                                <div
+                                    className='AditPhoto'
+                                    style={{ width: "300px", height: "300px" }}
                                 />
+                                {/* <img
+                                    classname='AditPhoto'
+                                    src={PhotoAdit1}
+                                    alt='Adit' */}
+
+                                {/* /> */}
                             </div>
                             <div className='AboutContent2'>
                                 <h3>Adit Ilham Nugroho</h3>
@@ -80,11 +86,15 @@ const AboutUs = () => {
                         </tr>
                         <tr>
                             <div className='AboutContent'>
-                                <img
-                                    classname='OurPhoto'
-                                    src={Photo}
-                                    alt='Zaky'
+                                <div
+                                    className='ZakyPhoto'
+                                    style={{ width: "300px", height: "300px" }}
                                 />
+                                {/* <img
+                                    classname='ZakyPhoto'
+                                    src={PhotoZaky1}
+                                    alt='Zaky'
+                                /> */}
                             </div>
                             <div className='AboutContent2'>
                                 <h3>Abdullah Zaky </h3>
@@ -105,11 +115,15 @@ const AboutUs = () => {
                         </tr>
                         <tr>
                             <div className='AboutContent'>
-                                <img
-                                    classname='OurPhoto'
+                                <div
+                                    className='TriPhoto'
+                                    style={{ width: "300px", height: "300px" }}
+                                />
+                                {/* <img
+                                    classname='TriPhoto'
                                     src={Photo}
                                     alt='Tri'
-                                />
+                                /> */}
                             </div>
                             <div className='AboutContent2'>
                                 <h3>Tri Kusuma Atmaja</h3>
@@ -132,11 +146,15 @@ const AboutUs = () => {
                     <td>
                         <tr>
                             <div className='AboutContent'>
-                                <img
-                                    classname='OurPhoto'
-                                    src={Photo}
-                                    alt='Krishna'
+                                <div
+                                    className='KhrisnaPhoto'
+                                    style={{ width: "300px", height: "300px" }}
                                 />
+                                {/* <img
+                                    classname='KhrisnaPhoto'
+                                    src={PhotoKhirsna1}
+                                    alt='Krishna'
+                                /> */}
                             </div>
                             <div className='AboutContent2'>
                                 <h3>Farhan Krishna Rowter</h3>
@@ -157,11 +175,15 @@ const AboutUs = () => {
                         </tr>
                         <tr>
                             <div className='AboutContent'>
-                                <img
-                                    classname='OurPhoto'
+                                <div
+                                    className='DarrenPhoto'
+                                    style={{ width: "300px", height: "300px" }}
+                                />
+                                {/* <img
+                                    classname='DarrenPhoto'
                                     src={Photo}
                                     alt='Darren'
-                                />
+                                /> */}
                             </div>
                             <div className='AboutContent2'>
                                 <h3>Christopher Darren Gobel </h3>
