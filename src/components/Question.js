@@ -27,8 +27,8 @@ const StyledLink = styled(Link)`
 `;
 
 let temporaryUserId = '-1'//nanti diganti pas pakai JWT
-if(JSON.parse(localStorage.getItem('user-data'))!=null) {
-  temporaryUserId = parseInt(JSON.parse(localStorage.getItem('user-data')).id)
+if(JSON.parse(localStorage.getItem('user-id'))!=null) {
+  temporaryUserId = parseInt(JSON.parse(localStorage.getItem('user-id')))
 }
 
 class Question extends React.Component {

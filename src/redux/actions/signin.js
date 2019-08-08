@@ -8,7 +8,8 @@ export const signin = (data) => {
         axios
             .post(`${process.env.REACT_APP_API_URL}/users/signin`, data)
             .then((res) => {
-                window.localStorage.setItem('user-data',JSON.stringify(res.data.data.users))
+                window.localStorage.setItem('user-id',JSON.stringify(res.data.data.users.id))
+                window.localStorage.setItem('user-firstName',JSON.stringify(res.data.data.users.firstName))
                 dispatch({
                     type: "signin",
                     payload: {

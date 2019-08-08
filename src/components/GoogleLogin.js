@@ -22,7 +22,7 @@ const GoogleLoginButton = props => {
           </button>
         )}
         onSuccess={responseGoogle => {
-          localStorage.setItem("googleAccount", JSON.stringify(responseGoogle));
+          // localStorage.setItem("googleAccount", JSON.stringify(responseGoogle));
           props.history.push("/Main");
           axios
             .post(`${process.env.REACT_APP_API_URL}/users/signup`, {
@@ -44,7 +44,8 @@ const GoogleLoginButton = props => {
                   password: responseGoogle.googleId
                 })
                 .then(res => {
-                  console.log(res);
+                  localStorage.setItem('user-id', res.data.data.users.id)
+                  window.location.reload();
                 })
                 .then(() => {
                   // this.props.history.push("/main");
