@@ -21,7 +21,7 @@ const StyledLink = styled(Link)`
 const NavBar = (props) => {
   return (
     <div id="navbar">
-      <StyledLink to={"/Main"}>
+      <StyledLink to={"/main"}>
         <img alt="logo" id="logo" src={Logo} />
       </StyledLink>
       <div id="sidebar-container">

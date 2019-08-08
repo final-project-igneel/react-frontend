@@ -1,6 +1,6 @@
 import React from "react";
 // import jwt from "jsonwebtoken"
-import MainContent from "./MainContent";
+import MainContent from "./mainContent";
 // import UserProfile from "./UserProfile";
 import NavBar from "./NavBar";
 import { extendAskBar } from "../helpers/index";

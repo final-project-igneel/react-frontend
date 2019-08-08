@@ -23,7 +23,7 @@ const GoogleLoginButton = props => {
         )}
         onSuccess={responseGoogle => {
           // localStorage.setItem("googleAccount", JSON.stringify(responseGoogle));
-          props.history.push("/Main");
+          props.history.push("/main");
           axios
             .post(`${process.env.REACT_APP_API_URL}/users/signup`, {
               firstName: responseGoogle.profileObj.givenName,

@@ -13,7 +13,7 @@ class FacebookLoginButton extends React.Component {
   responseFacebook = response => {
     console.log(response);
 
-    this.props.history.push("/Main");
+    this.props.history.push("/main");
     axios
       .post(`${process.env.REACT_APP_API_URL}/users/signup`,{
         firstName: response.name,

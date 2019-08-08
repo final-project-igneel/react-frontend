@@ -10,6 +10,8 @@ export const signin = (data) => {
             .then((res) => {
                 window.localStorage.setItem('user-id',JSON.stringify(res.data.data.users.id))
                 window.localStorage.setItem('user-firstName',JSON.stringify(res.data.data.users.firstName))
+                history.push("/main");
+                window.location.reload();
                 dispatch({
                     type: "signin",
                     payload: {
@@ -18,11 +20,9 @@ export const signin = (data) => {
                         name: res.data.user.firstName
                     }
                 });
-                message.success(`signin succeed as ${res.data.user.firstName}`, 1);
-                history.push("/Main");
-                window.location.reload();
+                
             }).then(() => {
-                history.push("/Main");
+                history.push("/main");
                 window.location.reload();
             })
             .catch((err) => {
