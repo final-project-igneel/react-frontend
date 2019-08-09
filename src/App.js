@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import { Provider } from "react-redux";
+
+import UserProfile from './components/UserProfile';
 import CategoryPage from './components/CategoryPage'
 import AboutUs from './components/AboutUs';
 
@@ -21,6 +23,7 @@ function App() {
                         <Route exact path={"/"} component={SignupPage} />
                         <Route path={"/Login"} component={LoginPage} />
                         <Route path={"/main"} component={MainPage} />
+                        <Route path={"/My_Profile"} component={UserProfile} />
                         <Route path={"/About_Us"} component={AboutUs} />
                         <Route path={'/category/:categoryName'} component={CategoryPage} />
                     </Switch>

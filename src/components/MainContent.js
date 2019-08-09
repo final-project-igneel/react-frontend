@@ -33,10 +33,7 @@ class MainContent extends React.Component {
         this.setState({
           isLoading: false,
           questions: response.data
-        });
-        console.log("====================================");
-        console.log(response);
-        console.log("====================================");
+        })
       })
       .catch(error => {
         console.log(error);
