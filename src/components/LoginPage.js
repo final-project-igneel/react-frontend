@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import wallpaper from "../images/wallpaper.png";
+import wallpaper from "../images/wallpaper.svg";
 import logo from "../images/logo.png";
 
 import FacebookLoginButton from "./FacebookLogin";

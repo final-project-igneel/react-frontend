@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import wallpaper from "../images/wallpaper.png";
+import wallpaper from "../images/wallpaper.svg";
 import logo from "../images/logo.png";
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
