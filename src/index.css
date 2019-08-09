@@ -717,6 +717,56 @@ br {
 
 @media only screen and (max-width: 1100px) {
 }
+@media only screen and (max-width: 900px) {
+  
+  .container {
+    font-size: 15px;
+  
+  }
+  .question-title {
+    font-size: 25px;
+  }
+  .question-button {
+    height: 20px;
+    width: 20px;
+  }
+  .numberOfLikes {
+    font-size: 20px
+  }
+  .input-comment {
+    font-size: 17px
+  }
+  .comment-submit-button {
+    font-size: 12px;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  #news-container {
+    display: none;
+  }
+  .container {
+    font-size: 10px;
+  
+  }
+  .question-title {
+    font-size: 20px;
+  }
+  .question-button {
+    height: 15px;
+    width: 15px;
+  }
+  .numberOfLikes {
+    font-size: 15px
+  }
+  .input-comment {
+    font-size: 12px
+  }
+  .comment-submit-button {
+    font-size: 10px;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   #form-container {
@@ -865,6 +915,7 @@ h3 {
 .AditPhoto {
   background-image : url(../src/images/ourteam/Adit1.png);
   background-size: contain;
+  transition: 0.5s;
 }
 .AditPhoto:hover {
   /* background-attachment: fixed; */
@@ -874,6 +925,7 @@ h3 {
 .ZakyPhoto {
   background-image : url(../src/images/ourteam/Zaky1.png);
   background-size: contain;
+  transition: 0.5s;
 }
 .ZakyPhoto:hover {
   /* background-attachment: fixed; */
@@ -883,6 +935,7 @@ h3 {
 .KhrisnaPhoto {
   background-image : url(../src/images/ourteam/Khrisna1.png);
   background-size: contain;
+  transition: 0.5s;
 }
 .KhrisnaPhoto:hover {
   /* background-attachment: fixed; */
@@ -891,14 +944,16 @@ h3 {
 
 .TriPhoto {
   background-image: url(../src/images/ourteam/Tri1.png);
-  background-size: contain
+  background-size: contain;
+  transition: 0.5s;
 }
 .TriPhoto:hover {
   background-image: url(../src/images/ourteam/Tri2.png);
 }
 .DarrenPhoto {
   background-image: url(../src/images/ourteam/darren1.png);
-  background-size: contain
+  background-size: contain;
+  transition: 0.1s;
 }
 .DarrenPhoto:hover {
   background-image: url(../src/images/ourteam/darren2.png);
@@ -914,4 +969,41 @@ h3 {
   margin-left: 20px;
 }
 
+
+/* edit-profile */
+ #profile-edit {
+   width: 45%;
+   float: left;
+   margin-top: 150px;
+   margin-right: 20px;
+   text-align: center;
+   /* background-color: #BC4646; */
+   height: 200px;
+ }
+ .form-profile-edit {
+  width: 50%;
+  float: left;
+  margin-top: 100px;
+  
+ }
+ .inputbox-editUser {
+   width: 300px;
+   height: 70px;
+ }
+ .edit-button{
+  float: right;
+  font-size: 14px;
+  padding: 5px;
+  width: 100px;
+  color: deepskyblue;
+  border-radius: 10px;
+  margin-top: 20px;
+  transition: 0.4s;
+  font-weight: bold;
+ }
+
+.edit-button:hover {
+  background-color: deepskyblue;
+  color: white;
+}
 /* ABOUT CSS */
