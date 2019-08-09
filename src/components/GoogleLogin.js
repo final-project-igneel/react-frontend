@@ -16,7 +16,6 @@ const GoogleLoginButton = props => {
             className='google-btn login-button"'
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
-            onSubmit={console.log('asd')}
           >
             <img alt="logo" id="google-icon" src={googleIcon} />
             Continue with Google

@@ -64,6 +64,9 @@ class MainPage extends React.Component {
   };
 
   handleSubmit = async () => {
+    const categories = ['phone','laptop','computer']
+    const chosenCategoryIndex = this.state.categoryChooserButton.indexOf(1) 
+
     if (this.state.inputBoxDetails === "") {
       alert("Please add more details to your question");
       console.log(temporaryUserId);
@@ -73,7 +76,8 @@ class MainPage extends React.Component {
         .post(`${process.env.REACT_APP_API_URL}/threads/create`, {
           title: this.state.inputBoxTitle,
           input: this.state.inputBoxDetails,
-          userid: temporaryUserId
+          userId: temporaryUserId,
+          category: categories[chosenCategoryIndex]
         })
         .then(
           Swal.fire({

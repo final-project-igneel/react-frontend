@@ -15,7 +15,7 @@ export class LoginForm extends React.Component {
     };
     
     componentDidMount(){
-        console.log(this.props);
+        localStorage.clear();
       }
 
     handleChange = event => {

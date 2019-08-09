@@ -27,7 +27,20 @@ export class SignUp extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.password !== this.state.confirmPassword) {
+    if (this.state.firstName === "" || 
+        this.state.lastName === "" ||
+        this.state.email === "" ||
+        this.state.password === "" ||
+        this.state.confirmPassword === "") {
+          Swal.fire({
+            title: "Oops!",
+            text:
+              "Please fill in all the input boxes",
+            type: "warning",
+            confirmButtonColor: "#de6e6e"
+        }) 
+      }
+    else if (this.state.password !== this.state.confirmPassword) {
       Swal.fire({
         title: "Oops!",
         text:
