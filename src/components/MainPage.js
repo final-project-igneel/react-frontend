@@ -13,7 +13,7 @@ import Videos from "./Youtube";
 
 let temporaryUserId = "-1"; //nanti diganti pas pakai JWT
 if (JSON.parse(localStorage.getItem("user-id")) != null) {
-  temporaryUserId = parseInt(JSON.parse(localStorage.getItem("user-id")))
+  temporaryUserId = parseInt(JSON.parse(localStorage.getItem("user-id")));
 }
 class MainPage extends React.Component {
   constructor() {
@@ -65,7 +65,7 @@ class MainPage extends React.Component {
   handleSubmit = async () => {
     if (this.state.inputBoxDetails === "") {
       alert("Please add more details to your question");
-      console.log(temporaryUserId)
+      console.log(temporaryUserId);
     } else {
       toggleAskBar();
       await axios
@@ -142,25 +142,25 @@ class MainPage extends React.Component {
                 href="http://newsapi.org"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{textDecoration:'none'}}
               >
                 <p id="powered-newsapi">Powered by NewsAPI</p>
               </a>
               <div />
               <div id="news-items">
                 <NewsItem />
-                <Videos />
               </div>
             </div>
           </div>
         </div>
       );
     } else {
-        return(
-            <div>
-                <h1>You will be redirected to the main page</h1>
-                <h2>If nothing happens in 5 seconds, please log in again</h2>
-            </div>
-        )
+      return (
+        <div>
+          <h1>You will be redirected to the main page</h1>
+          <h2>If nothing happens in 5 seconds, please log in again</h2>
+        </div>
+      );
     }
   }
 }

@@ -1,7 +1,8 @@
 import axios from "axios";
-import { message } from "antd";
+// import { message } from "antd";
 import { createBrowserHistory } from "history";
-
+import Swal from "sweetalert2";
+         
 const history = createBrowserHistory();
 export const signin = (data) => {
     return (dispatch) => {
@@ -26,8 +27,14 @@ export const signin = (data) => {
                 window.location.reload();
             })
             .catch((err) => {
-                // console.log(err);
-                message.error("signin failed", 1);
+                if(err.response.status === 401) {
+                    Swal.fire({
+                        title: "Oops!",
+                        text: "The email/password combination doesn't match. Please check them again.",
+                        type: "warning",
+                        confirmButtonColor: "#de6e6e"
+                      })
+                }
             });
     };
 };

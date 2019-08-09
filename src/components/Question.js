@@ -47,8 +47,6 @@ class Question extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.usersWhoLikedTheQuestion) 
-    console.log(temporaryUserId)
     this.getCommentData();
     this.setState({
       likeButtonClicked: this.state.usersWhoLikedTheQuestion.includes(

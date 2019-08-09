@@ -16,6 +16,7 @@ const GoogleLoginButton = props => {
             className='google-btn login-button"'
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
+            onSubmit={console.log('asd')}
           >
             <img alt="logo" id="google-icon" src={googleIcon} />
             Continue with Google
@@ -33,7 +34,7 @@ const GoogleLoginButton = props => {
             })
             .then(response => {
               if (response.status === 201) {
-                console.log('Operation successful')
+                console.log("Operation successful");
               }
             })
             .catch(error => {
@@ -43,7 +44,7 @@ const GoogleLoginButton = props => {
                   password: responseGoogle.googleId
                 })
                 .then(res => {
-                  localStorage.setItem('user-id', res.data.data.users.id)
+                  localStorage.setItem("user-id", res.data.data.users.id);
                   window.location.reload();
                 })
                 .then(() => {

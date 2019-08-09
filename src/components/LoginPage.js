@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import wallpaper from "../images/wallpaper.png";
 import logo from "../images/logo.png";
-// import facebookIcon from "../images/facebookicon.png";
+
 import FacebookLoginButton from "./FacebookLogin";
 import GoogleLoginButton from "./GoogleLogin";
 import { signin } from "../redux/actions/signin";
@@ -13,6 +13,7 @@ export class LoginForm extends React.Component {
         email: "",
         password: ""
     };
+    
     componentDidMount(){
         console.log(this.props);
       }
@@ -29,6 +30,13 @@ export class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         })
+    };
+
+    onKeyPress = event => {
+        if (event.which === 13 /* Enter */) {
+          event.preventDefault();
+          this.handleSubmit(event);
+        }
     };
 
     render() {
@@ -75,6 +83,7 @@ export class LoginForm extends React.Component {
                                     name="password"
                                     value={this.state.password}
                                     onChange={this.handleChange}
+                                    onKeyDown={this.onKeyPress}
                                 />
                             </div>
                             <p id="already-have-an-account">

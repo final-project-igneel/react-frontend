@@ -11,7 +11,7 @@ import Logo from "../images/logo.png";
 const AboutUs = () => {
     return (
         <div className='About'>
-            <NavBar />
+            <NavBar askButton='invisible'/>
             <div>
                 <div>
                     <img
