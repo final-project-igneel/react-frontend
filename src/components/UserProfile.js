@@ -46,55 +46,116 @@ export class UserProfile extends React.Component {
       });
   };
 
-  render() {
-    return (
-      <div className="MyProfile">
-        <NavBar askButton="invisible" />
-        <div id="user-profile">
+  // render() {
+  //   return (
+  //     <div className="MyProfile">
+  //       <NavBar askButton="invisible" />
+  //       <div className="edit-content">
+  //       <div id="user-profile">
+  //       <img src={ProfilePhoto} id="profile-photo" alt="profile" />
+  //         <h2>
+  //           {localStorage.getItem("user-firstName").slice(1, -1)}{" "}
+  //           {localStorage.getItem("user-lastName").slice(1, -1)}
+  //         </h2>
+          
+  //         </div>
+          
+  //         <div id="edit-user-form">
+  //         <form onSubmit={this.handleSubmit}>
+  //           <div className="edit-user-form">
+  //             <h3>My Profile</h3>
+  //             <div className="inputbox-container">
+  //               <h5>First Name</h5>
+  //               <input
+  //                 className="inputbox"
+  //                 id="inputbox-userprofile"
+  //                 placeholder={localStorage
+  //                   .getItem("user-firstName")
+  //                   .slice(1, -1)}
+  //                 type="text"
+  //                 name="firstName"
+  //                 onChange={this.handleChange}
+  //               />
+  //             </div>
+  //             <div className="inputbox-container">
+  //               <h5>Last Name</h5>
+  //               <input
+  //                 className="inputbox"
+  //                 id="inputbox-userprofile"
+  //                 placeholder={localStorage
+  //                   .getItem("user-lastName")
+  //                   .slice(1, -1)}
+  //                 type="text"
+  //                 name="lastName"
+  //                 onChange={this.handleChange}
+  //               />
+  //               <button id="sign-up-button" type="submit">
+  //             Save!
+  //           </button>
+  //             </div>
+  //           </div>
+            
+  //         </form>
+  //         </div>
+  //       </div>
+        
+  //   </div>
+  //   );
+  // }
+
+
+render() {
+  return (
+    <div>
+      <NavBar askButton="invisible" />
+      <div>
+        <div id="profile-edit">
+        <img src={ProfilePhoto} id="profile-photo" alt="profile" />
           <h2>
             {localStorage.getItem("user-firstName").slice(1, -1)}{" "}
             {localStorage.getItem("user-lastName").slice(1, -1)}
           </h2>
-          <img src={ProfilePhoto} id="profile-photo" alt="profile" />
-
-          <form id="login-form" onSubmit={this.handleSubmit}>
-            <div id="edit-user-form">
-              <h3>My Profile</h3>
-              <div className="inputbox-container">
+        </div>
+        <div className='form-profile-edit'>
+        <form onSubmit={this.handleSubmit}>
+             <div className="edit-user-form">
+             <h3>Edit Profile Name</h3>
+             <div className="inputbox-editUser">
                 <h5>First Name</h5>
                 <input
-                  className="inputbox"
-                  id="inputbox-userprofile"
+                 className="inputbox"
+                 id="inputbox-userprofile"
                   placeholder={localStorage
                     .getItem("user-firstName")
-                    .slice(1, -1)}
-                  type="text"
-                  name="firstName"
-                  onChange={this.handleChange}
-                />
-              </div>
-              <div className="inputbox-container">
-                <h5>Last Name</h5>
-                <input
-                  className="inputbox"
-                  id="inputbox-userprofile"
-                  placeholder={localStorage
-                    .getItem("user-lastName")
-                    .slice(1, -1)}
-                  type="text"
-                  name="lastName"
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <button id="sign-up-button" type="submit">
-              Save!
-            </button>
-          </form>
+                     .slice(1, -1)}
+                   type="text"
+                   name="firstName"
+                   onChange={this.handleChange}
+                 />
+               </div>
+               <div className="inputbox-editUser">
+                 <h5>Last Name</h5>
+                 <input
+                   className="inputbox"
+                   id="inputbox-userprofile"
+                   placeholder={localStorage
+                     .getItem("user-lastName")
+                     .slice(1, -1)}
+                   type="text"
+                   name="lastName"
+                   onChange={this.handleChange}
+                 />
+                 <button className="edit-button" type="submit">
+               Save!
+             </button>
+               </div>
+             </div>
+            
+           </form>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  )}}
+
 
 export default UserProfile;
