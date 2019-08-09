@@ -7,7 +7,6 @@ import PhoneIcon from "../images/Phone.jpg";
 import LaptopIcon from "../images/Laptop.jpg";
 import PCIcon from "../images/PC.jpg";
 import { toggleVisibility, toggleAskBar } from "../helpers/index";
-import { Redirect } from 'react-router-dom';
 //style buat react link
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -25,10 +24,9 @@ const NavBar = props => {
   let handleLogout = () => {
     localStorage.clear();
     localStorage.setItem("logged-in", false);
-    return <Redirect to='/main' />
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 1000);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   let handleClick = () => {
