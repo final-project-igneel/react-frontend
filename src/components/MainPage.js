@@ -8,6 +8,7 @@ import axios from "axios";
 import { toggleAskBar } from "../helpers/index";
 import Swal from "sweetalert2";
 import NewsItem from "./NewsItem";
+import { Link} from 'react-router-dom';
 // import FAQ from "./FAQ";
 import Videos from "./Youtube";
 
@@ -142,7 +143,7 @@ class MainPage extends React.Component {
                 href="http://newsapi.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{textDecoration:'none'}}
+                style={{ textDecoration: "none" }}
               >
                 <p id="powered-newsapi">Powered by NewsAPI</p>
               </a>
@@ -153,6 +154,14 @@ class MainPage extends React.Component {
             </div>
           </div>
         </div>
+      );
+    } 
+    if (localStorage.getItem("logged-in") === 'false') {
+      return (
+        <React.Fragment>
+          <h1>You have been logged out</h1>
+          <h1>Please click <Link to={'/'}>here</Link> to return to login page</h1>
+        </React.Fragment>
       );
     } else {
       return (

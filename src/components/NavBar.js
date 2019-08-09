@@ -21,7 +21,9 @@ const StyledLink = styled(Link)`
 const NavBar = props => {
 
   let handleLogout = () => {
-    console.log('Logged out');
+    localStorage.clear();
+    localStorage.setItem('logged-in', false)
+    setTimeout(() => {window.location.reload();},1000) 
   }
 
   return (
