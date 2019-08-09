@@ -28,7 +28,7 @@ class QAPage extends React.Component {
     const { id } = this.props.match.params;
 
     axios
-      .get(`http://localhost:4000/threads/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/threads/${id}`)
       .then(response => {
         // handle success
         this.setState({

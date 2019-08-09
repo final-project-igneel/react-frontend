@@ -27,17 +27,15 @@ class MainContent extends React.Component {
         });
 
         axios
-            .get(`http://gadget-fraqs.herokuapp.com/threads`)
+            .get(`${process.env.REACT_APP_API_URL}/threads`)
             .then((response) => {
                 // handle success
-                console.log(response.data);
                 this.setState({
                     isLoading: false,
                     questions: response.data
                 });
             })
             .catch((error) => {
-                // handle error
                 console.log(error);
             })
             .finally(function() {

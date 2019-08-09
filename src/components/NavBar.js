@@ -6,22 +6,29 @@ import ProfilePhoto from "../images/Ellipse.png";
 import PhoneIcon from "../images/Phone.jpg";
 import LaptopIcon from "../images/Laptop.jpg";
 import PCIcon from "../images/PC.jpg";
-import {toggleVisibility, toggleAskBar} from '../helpers/index'
+import { toggleVisibility, toggleAskBar } from "../helpers/index";
 
 //style buat react link
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: white;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const NavBar = (props) => {
+const NavBar = props => {
+
+  let handleLogout = () => {
+    localStorage.clear();
+    localStorage.setItem('logged-in', false)
+    setTimeout(() => {window.location.reload();},1000) 
+  }
+
   return (
     <div id="navbar">
-      <StyledLink to={"/Main"}>
+      <StyledLink to={"/main"}>
         <img alt="logo" id="logo" src={Logo} />
       </StyledLink>
       <div id="sidebar-container">
@@ -30,7 +37,7 @@ const NavBar = (props) => {
         </span>
         <div id="sidebar">
           <img src={ProfilePhoto} id="profile-photo" alt="profile" />
-          <h6>Joe Taslim</h6>
+          <h6>{localStorage.getItem('user-firstName').slice(1, -1)}</h6>
           <hr width="70%" />
           <p id="categories-heading">FORUM CATEGORIES</p>
           <div className="sidebar-links-sub-container">
@@ -47,12 +54,17 @@ const NavBar = (props) => {
           </div>
           <hr width="70%" />
           <li className="sidebar-links">My Profile</li>
-          <Link to={'/About_Us'}><li className="sidebar-links">About Us</li></Link>
+          <StyledLink to={"/About_Us"}>
+            <li className="sidebar-links">About Us</li>
+          </StyledLink>
+          <li onClick={handleLogout} className="sidebar-links">Logout</li>
         </div>
         <div id="grey-overlay" onClick={toggleVisibility} />
       </div>
-      <button id="submit-question" onClick={props.handleSubmit}>Submit</button>
-      <button id="ask-button" onClick={toggleAskBar}>
+      <button id="submit-question" onClick={props.handleSubmit}>
+        Submit
+      </button>
+      <button style={{display: props.askButton === 'invisible' ? 'none' : 'block'}} id="ask-button" onClick={toggleAskBar}>
         ASK
       </button>
     </div>

@@ -442,13 +442,13 @@ br {
   overflow: scroll;
 }
 .videos-items {
-  width: 300px;
-  height: 130px;
+  width: 250px;
+  height: 100px;
   margin: 10px 0;
 }
 #news-container {
   position: fixed;
-  height: 500px;
+  height: 600px;
   overflow: scroll;
   overflow: -moz-hidden-unscrollable;
   top:100px;
@@ -461,14 +461,16 @@ br {
 
 #today-technology {
   margin:10px 0;
+  margin-top: 40px;
 }
 
 #powered-newsapi {
   color: gray;
-  margin: 10px 0;
+  margin: 0px 0 10px 0;
 }
+
 #news-items {
-  height: 200px;
+  height: 300px;
   width:280px;
   overflow: scroll;
 }

@@ -26,8 +26,10 @@ const StyledLink = styled(Link)`
   }
 `;
 
-//nanti diganti pas pakai JWT
-const temporaryUserId = "5";
+let temporaryUserId = '-1'//nanti diganti pas pakai JWT
+if(JSON.parse(localStorage.getItem('user-id'))!=null) {
+  temporaryUserId = parseInt(JSON.parse(localStorage.getItem('user-id')))
+}
 
 class Question extends React.Component {
   constructor(props) {
@@ -48,7 +50,7 @@ class Question extends React.Component {
     this.getCommentData();
     this.setState({
       likeButtonClicked: this.state.usersWhoLikedTheQuestion.includes(
-        temporaryUserId
+        String(temporaryUserId)
       )
         ? true
         : false
@@ -61,7 +63,7 @@ class Question extends React.Component {
 
   getCommentData = () => {
     axios
-      .get(`http://gadget-fraqs.herokuapp.com/comments/${this.props.data.id}`)
+      .get(`${process.env.REACT_APP_API_URL}/comments/${this.props.data.id}`)
       .then(response => {
         this.setState({
           comments: response.data.commentData.filter(
@@ -88,6 +90,7 @@ class Question extends React.Component {
     });
 
     this.getCommentData();
+    console.log(this.props.data)
   };
 
   toggleLikeButton = () => {
@@ -106,7 +109,7 @@ class Question extends React.Component {
     });
 
     axios
-      .put(`http://gadget-fraqs.herokuapp.com/threads/${this.props.data.id}`, {
+      .put(`${process.env.REACT_APP_API_URL}/threads/${this.props.data.id}`, {
         questionId: this.props.data.id,
         usersId: users.toString(),
         userId: temporaryUserId

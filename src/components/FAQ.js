@@ -28,7 +28,7 @@ class FAQ extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:4000/FAQ`)
+      .get(`${process.env.REACT_APP_API_URL}/FAQ`)
       .then(response => {
         // handle success
         this.setState({

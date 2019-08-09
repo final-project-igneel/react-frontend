@@ -1,34 +1,40 @@
 import axios from "axios";
-import { message } from "antd";
+// import { message } from "antd";
 import { createBrowserHistory } from "history";
-
+import Swal from "sweetalert2";
+         
 const history = createBrowserHistory();
 export const signin = (data) => {
     return (dispatch) => {
         axios
             .post(`${process.env.REACT_APP_API_URL}/users/signin`, data)
             .then((res) => {
-                console.log(res);
-                localStorage.setItem("token", res.data.data.token)
-               
-                // window.localStorage.token = res.data.token;
-                // dispatch({
-                //     type: "signin",
-                //     payload: {
-                //         token: res.data.token,
-                //         email: res.data.user.email,
-                //         name: res.data.user.firstName
-                //     }
-                // });
-                // console.log(res);
-                // message.success(`signin succeed as ${res.data.user.firstName}`, 1);
+                window.localStorage.setItem('user-id',JSON.stringify(res.data.data.users.id))
+                window.localStorage.setItem('user-firstName',JSON.stringify(res.data.data.users.firstName))
+                history.push("/main");
+                window.location.reload();
+                dispatch({
+                    type: "signin",
+                    payload: {
+                        token: res.data.token,
+                        email: res.data.user.email,
+                        name: res.data.user.firstName
+                    }
+                });
+                
             }).then(() => {
-                history.push("/Main");
+                history.push("/main");
                 window.location.reload();
             })
             .catch((err) => {
-                // console.log(err);
-                message.error("signin failed", 1);
+                if(err.response.status === 401) {
+                    Swal.fire({
+                        title: "Oops!",
+                        text: "The email/password combination doesn't match. Please check them again.",
+                        type: "warning",
+                        confirmButtonColor: "#de6e6e"
+                      })
+                }
             });
     };
 };
