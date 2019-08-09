@@ -12,7 +12,7 @@ class FacebookLoginButton extends React.Component {
 
     this.props.history.push("/main");
     axios
-      .post(`${process.env.REACT_APP_API_URL}/users/signup`,{
+      .post(`${process.env.REACT_APP_API_URL}/users/signup`, {
         firstName: response.name,
         lastName: response.name,
         email: response.email,
@@ -20,30 +20,34 @@ class FacebookLoginButton extends React.Component {
       })
       .then(res => {
         console.log(res);
-        if(res.status === 201) {
-          this.props.history.push('./main')
-          localStorage.setItem('user-id', res.data.create.id)
+        if (res.status === 201) {
+          this.props.history.push("./main");
+          localStorage.setItem("user-id", res.data.create.id);
+          localStorage.setItem("user-firstName", res.data.create.name.split(' ')[0]);
+          localStorage.setItem("user-lastName", res.data.create.name.split(' ')[1]);
           window.location.reload();
         }
       })
       .catch(error => {
         axios
-                .post(`${process.env.REACT_APP_API_URL}/users/signin`, {
-                  email: response.email,
-                  password: response.id
-                })
-                .then(res => {
-                  localStorage.setItem('user-id', res.data.data.users.id)
-                  window.location.reload();
-                  this.props.history.push("/main");
-                })
-                .then(() => {
-                  // window.location.reload();
-                })
-                .catch(err => {
-                  console.log(err);
-                });
-      })
+          .post(`${process.env.REACT_APP_API_URL}/users/signin`, {
+            email: response.email,
+            password: response.id
+          })
+          .then(res => {
+            localStorage.setItem("user-id", res.data.data.users.id);
+            localStorage.setItem("user-firstName", res.data.data.name.split(' ')[0]);
+            localStorage.setItem("user-lastName", res.data.data.name.split(' ')[1]);
+            window.location.reload();
+            this.props.history.push("/main");
+          })
+          .then(() => {
+            // window.location.reload();
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
   };
 
   render() {

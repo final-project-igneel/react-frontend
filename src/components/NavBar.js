@@ -7,7 +7,7 @@ import PhoneIcon from "../images/Phone.jpg";
 import LaptopIcon from "../images/Laptop.jpg";
 import PCIcon from "../images/PC.jpg";
 import { toggleVisibility, toggleAskBar } from "../helpers/index";
-
+import { Redirect } from 'react-router-dom';
 //style buat react link
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -19,12 +19,16 @@ const StyledLink = styled(Link)`
 `;
 
 const NavBar = props => {
+  let userFirstName = localStorage.getItem('user-firstName');
+  let userLastName = localStorage.getItem('user-lastName');
+
   let handleLogout = () => {
     localStorage.clear();
     localStorage.setItem("logged-in", false);
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
+    return <Redirect to='/main' />
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 1000);
   };
 
   let handleClick = () => {
@@ -44,7 +48,8 @@ const NavBar = props => {
         </span>
         <div id="sidebar">
           <img src={ProfilePhoto} id="profile-photo" alt="profile" />
-          <h6>{localStorage.getItem('user-firstName').slice(1, -1)} {localStorage.getItem('user-lastName').slice(1, -1)}</h6>
+          <h6>{userFirstName.slice(0,1)==="\"" && userFirstName.slice(1,-1)} {userLastName.slice(0,1)==="\"" && userLastName.slice(1,-1)}</h6>
+          <h6>{userFirstName.slice(0,1)!=="\"" && userFirstName} {userLastName.slice(0,1)!=="\"" && userLastName}</h6>
           <hr width="70%" />
           <p id="categories-heading">FORUM CATEGORIES</p>
           <StyledLink to={"/category/phones"} onClick={handleClick}>

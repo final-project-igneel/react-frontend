@@ -33,7 +33,9 @@ const GoogleLoginButton = props => {
             })
             .then(response => {
               if (response.status === 201) {
-                console.log("Operation successful");
+                console.log(response)
+                localStorage.setItem("user-id", response.data.data.users.id);
+                localStorage.setItem("user-firstName", response.data.data.users.firstName);
               }
             })
             .catch(error => {
@@ -44,6 +46,7 @@ const GoogleLoginButton = props => {
                 })
                 .then(res => {
                   localStorage.setItem("user-id", res.data.data.users.id);
+                  localStorage.setItem("user-firstName", res.data.data.users.firstName);
                   window.location.reload();
                 })
                 .then(() => {

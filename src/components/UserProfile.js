@@ -41,39 +41,47 @@ export class UserProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    axios
-      .put(`${process.env.REACT_APP_API_URL}/users/update/${this.state.id}`, {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName
+    if(document.getElementsByClassName('userFirstName')[0].value === "" || document.getElementsByClassName('userLastName')[0].value === "" ) {
+      Swal.fire({
+        title: "Oops",
+        text: "First and lastname boxes cannot be blank",
+        type: "warning",
       })
-      .then(response => {
-        console.log(response);
-        if (response.status === 200) {
-          this.setState({
-            isLoading: true,
-          })
-          window.localStorage.setItem(
-            "user-firstName",
-            JSON.stringify(response.data.editUser.firstName)
-          );
-          window.localStorage.setItem(
-            "user-lastName",
-            JSON.stringify(response.data.editUser.lastName)
-          );
-
-          Swal.fire({
-            title: "Success!",
-            text:
-              "Updated!",
-            type: "success",
-          });
-
-          this.props.history.push("/Main");
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    } else {
+      axios
+        .put(`${process.env.REACT_APP_API_URL}/users/update/${this.state.id}`, {
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        })
+        .then(response => {
+          console.log(response);
+          if (response.status === 200) {
+            this.setState({
+              isLoading: true,
+            })
+            window.localStorage.setItem(
+              "user-firstName",
+              JSON.stringify(response.data.editUser.firstName)
+            );
+            window.localStorage.setItem(
+              "user-lastName",
+              JSON.stringify(response.data.editUser.lastName)
+            );
+  
+            Swal.fire({
+              title: "Success!",
+              text:
+                "Updated!",
+              type: "success",
+            });
+  
+            this.props.history.push("/Main");
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   };
 
   render() {
@@ -110,7 +118,7 @@ export class UserProfile extends React.Component {
                 <div className="inputbox-editUser">
                   <h5>First Name</h5>
                   <input
-                    className="inputbox"
+                    className="inputbox userFirstName"
                     id="inputbox-userprofile"
                     placeholder={localStorage
                       .getItem("user-firstName")
@@ -124,7 +132,7 @@ export class UserProfile extends React.Component {
                 <div className="inputbox-editUser">
                   <h5>Last Name</h5>
                   <input
-                    className="inputbox"
+                    className="inputbox userLastName"
                     id="inputbox-userprofile"
                     placeholder={localStorage
                       .getItem("user-lastName")

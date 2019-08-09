@@ -60,7 +60,7 @@ class Comment extends React.Component {
           {this.props.commentsData.map((comment, index) => (
             <div key={index} className="individual-comment">
               <div className="comments-firstname">
-                <b>{comment.user.firstName}</b>
+                {comment.user !== null && <b>{comment.user.firstName}</b>}
               </div>
               <div className="comments-comment">{comment.comment}</div>
               <div ref={el => this.el = el} />
