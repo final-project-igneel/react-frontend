@@ -44,11 +44,7 @@ const NavBar = props => {
         </span>
         <div id="sidebar">
           <img src={ProfilePhoto} id="profile-photo" alt="profile" />
-<<<<<<< HEAD
           <h6>{localStorage.getItem('user-firstName').slice(1, -1)} {localStorage.getItem('user-lastName').slice(1, -1)}</h6>
-=======
-          <h6>{localStorage.getItem("user-firstName").slice(1, -1)}</h6>
->>>>>>> 613e05646a4a868f2f6a849008456939a5fcb7d7
           <hr width="70%" />
           <p id="categories-heading">FORUM CATEGORIES</p>
           <StyledLink to={"/category/phones"} onClick={handleClick}>

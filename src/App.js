@@ -7,12 +7,9 @@ import FAQPage from "./components/FAQPage";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import { Provider } from "react-redux";
-<<<<<<< HEAD
 
 import UserProfile from './components/UserProfile';
-=======
 import CategoryPage from './components/CategoryPage'
->>>>>>> 613e05646a4a868f2f6a849008456939a5fcb7d7
 import AboutUs from './components/AboutUs';
 
 import configureStore from './redux/store'
