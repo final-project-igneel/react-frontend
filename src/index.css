@@ -548,7 +548,18 @@ br {
   border-radius: 10px;
   margin-top: 80px;
   margin-bottom: 20px;
-  width: 15vw;
+  width: 30vw;
+  text-align: center
+}
+
+.MyProfile{
+
+}
+
+#edit-user-form {
+  /* float: left;
+  margin: 0; */
+  width: 300px;
 }
 
 #user-photo {
