@@ -867,6 +867,20 @@ h3 {
   background-image : url(../src/images/ourteam/Khrisna2.png);
 }
 
+.TriPhoto {
+  background-image: url(../src/images/ourteam/Tri1.png);
+  background-size: contain
+}
+.TriPhoto:hover {
+  background-image: url(../src/images/ourteam/Tri2.png);
+}
+.DarrenPhoto {
+  background-image: url(../src/images/ourteam/darren1.png);
+  background-size: contain
+}
+.DarrenPhoto:hover {
+  background-image: url(../src/images/ourteam/darren2.png);
+}
 .AboutContent {
   float: left;
   margin-bottom: 70px;

@@ -27,7 +27,7 @@ class MainContent extends React.Component {
         });
 
         axios
-            .get(`${process.env.REACT_APP_API_URL}/threads`)
+            .get(`${process.env.REACT_APP_API_URL}/threads/${this.props.category}`)
             .then((response) => {
                 // handle success
                 this.setState({

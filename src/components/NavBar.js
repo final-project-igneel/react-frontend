@@ -19,11 +19,18 @@ const StyledLink = styled(Link)`
 `;
 
 const NavBar = props => {
-
   let handleLogout = () => {
     localStorage.clear();
-    localStorage.setItem('logged-in', false)
-    setTimeout(() => {window.location.reload();},1000) 
+    localStorage.setItem("logged-in", false);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  };
+
+  let handleClick = () => {
+    setTimeout(() => {
+      window.location.reload()
+    },100)
   }
 
   return (
@@ -37,21 +44,35 @@ const NavBar = props => {
         </span>
         <div id="sidebar">
           <img src={ProfilePhoto} id="profile-photo" alt="profile" />
+<<<<<<< HEAD
           <h6>{localStorage.getItem('user-firstName').slice(1, -1)} {localStorage.getItem('user-lastName').slice(1, -1)}</h6>
+=======
+          <h6>{localStorage.getItem("user-firstName").slice(1, -1)}</h6>
+>>>>>>> 613e05646a4a868f2f6a849008456939a5fcb7d7
           <hr width="70%" />
           <p id="categories-heading">FORUM CATEGORIES</p>
-          <div className="sidebar-links-sub-container">
-            <img className="sidebar-icons" src={PhoneIcon} alt="phoneicon" />
-            <li className="sidebar-links-sub">Phones</li>
-          </div>
-          <div className="sidebar-links-sub-container">
-            <img className="sidebar-icons" src={LaptopIcon} alt="laptop icon" />
-            <li className="sidebar-links-sub">Laptops</li>
-          </div>
-          <div className="sidebar-links-sub-container">
-            <img className="sidebar-icons" src={PCIcon} alt="pc icon" />
-            <li className="sidebar-links-sub">PCs</li>
-          </div>
+          <StyledLink to={"/category/phones"} onClick={handleClick}>
+            <div className="sidebar-links-sub-container">
+              <img className="sidebar-icons" src={PhoneIcon} alt="phoneicon" />
+              <li className="sidebar-links-sub">Phones</li>
+            </div>
+          </StyledLink>
+          <StyledLink to={"/category/laptops"} onClick={handleClick}>
+            <div className="sidebar-links-sub-container">
+              <img
+                className="sidebar-icons"
+                src={LaptopIcon}
+                alt="laptop icon"
+              />
+              <li className="sidebar-links-sub">Laptops</li>
+            </div>
+          </StyledLink>
+          <StyledLink to={"/category/computers"}  onClick={handleClick}>
+            <div className="sidebar-links-sub-container">
+              <img className="sidebar-icons" src={PCIcon} alt="pc icon" />
+              <li className="sidebar-links-sub">PCs</li>
+            </div>
+          </StyledLink>
           <hr width="70%" />
           <StyledLink to={"/My_Profile"}>
           <li className="sidebar-links">My Profile</li>
@@ -59,14 +80,20 @@ const NavBar = props => {
           <StyledLink to={"/About_Us"}>
             <li className="sidebar-links">About Us</li>
           </StyledLink>
-          <li onClick={handleLogout} className="sidebar-links">Logout</li>
+          <li onClick={handleLogout} className="sidebar-links">
+            Logout
+          </li>
         </div>
         <div id="grey-overlay" onClick={toggleVisibility} />
       </div>
       <button id="submit-question" onClick={props.handleSubmit}>
         Submit
       </button>
-      <button style={{display: props.askButton === 'invisible' ? 'none' : 'block'}} id="ask-button" onClick={toggleAskBar}>
+      <button
+        style={{ display: props.askButton === "invisible" ? "none" : "block" }}
+        id="ask-button"
+        onClick={toggleAskBar}
+      >
         ASK
       </button>
     </div>
