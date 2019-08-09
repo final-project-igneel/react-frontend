@@ -15,12 +15,11 @@ const override = css`
   border-color: red;
 `;
 
-
 export class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading:false,
+      isLoading: false,
       firstName: "",
       lastName: "",
       id: `${localStorage.getItem("user-id")}`
@@ -41,12 +40,15 @@ export class UserProfile extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    if(document.getElementsByClassName('userFirstName')[0].value === "" || document.getElementsByClassName('userLastName')[0].value === "" ) {
+    if (
+      document.getElementsByClassName("userFirstName")[0].value === "" ||
+      document.getElementsByClassName("userLastName")[0].value === ""
+    ) {
       Swal.fire({
         title: "Oops",
         text: "First and lastname boxes cannot be blank",
-        type: "warning",
-      })
+        type: "warning"
+      });
     } else {
       axios
         .put(`${process.env.REACT_APP_API_URL}/users/update/${this.state.id}`, {
@@ -57,8 +59,8 @@ export class UserProfile extends React.Component {
           console.log(response);
           if (response.status === 200) {
             this.setState({
-              isLoading: true,
-            })
+              isLoading: true
+            });
             window.localStorage.setItem(
               "user-firstName",
               JSON.stringify(response.data.editUser.firstName)
@@ -67,14 +69,13 @@ export class UserProfile extends React.Component {
               "user-lastName",
               JSON.stringify(response.data.editUser.lastName)
             );
-  
+
             Swal.fire({
               title: "Success!",
-              text:
-                "Updated!",
-              type: "success",
+              text: "Updated!",
+              type: "success"
             });
-  
+
             this.props.history.push("/Main");
           }
         })
@@ -85,7 +86,7 @@ export class UserProfile extends React.Component {
   };
 
   render() {
-    if(this.state.isLoading){
+    if (this.state.isLoading) {
       return (
         <div className="sweet-loading">
           <FadeLoader
@@ -98,61 +99,78 @@ export class UserProfile extends React.Component {
           />
         </div>
       );
-    
-  } else {
-    return (
-      <div>
-        <NavBar askButton="invisible" />
+    } else {
+      return (
         <div>
-          <div id="profile-edit">
-            <img src={ProfilePhoto} id="profile-photo" alt="profile" />
-            <h2>
-              {localStorage.getItem("user-firstName").slice(1, -1)}{" "}
-              {localStorage.getItem("user-lastName").slice(1, -1)}
-            </h2>
-          </div>
-          <div className="form-profile-edit">
-            <form onSubmit={this.handleSubmit}>
-              <div className="edit-user-form">
-                <h3>Edit Profile Name</h3>
-                <div className="inputbox-editUser">
-                  <h5>First Name</h5>
-                  <input
-                    className="inputbox userFirstName"
-                    id="inputbox-userprofile"
-                    placeholder={localStorage
-                      .getItem("user-firstName")
-                      .slice(1, -1)}
-                    type="text"
-                    name="firstName"
-                    onChange={this.handleChange}
-                    not
-                  />
+          <NavBar askButton="invisible" />
+          <div>
+            <div id="profile-edit">
+              <img src={ProfilePhoto} id="profile-photo" alt="profile" />
+              <h2>
+                {localStorage.getItem("user-firstName").slice(0,1) === '"' &&
+                  localStorage.getItem("user-firstName").slice(1, -1)}
+                {localStorage.getItem("user-lastName").slice(0,1) === '"' &&
+                localStorage.getItem("user-lastName").slice(1, -1)}
+              </h2>
+              <h2>
+                {localStorage.getItem("user-firstName").slice(0,1) !== '"' && 
+                localStorage.getItem("user-firstName")}{" "}
+                {localStorage.getItem("user-lastName").slice(0,1) !== '"' &&
+                localStorage.getItem("user-lastName")}
+              </h2>
+            </div>
+            <div className="form-profile-edit">
+              <form onSubmit={this.handleSubmit}>
+                <div className="edit-user-form">
+                  <h3>Edit Profile Name</h3>
+                  <div className="inputbox-editUser">
+                    <h5>First Name</h5>
+                    <input
+                      className="inputbox userFirstName"
+                      id="inputbox-userprofile"
+                      placeholder={localStorage
+                        .getItem("user-firstName")
+                        .slice(0,1) ?
+                        localStorage
+                        .getItem("user-firstName")
+                        .slice(1, -1) :
+                        localStorage
+                        .getItem("user-firstName")}
+                      type="text"
+                      name="firstName"
+                      onChange={this.handleChange}
+                      not
+                    />
+                  </div>
+                  <div className="inputbox-editUser">
+                    <h5>Last Name</h5>
+                    <input
+                      className="inputbox userLastName"
+                      id="inputbox-userprofile"
+                      placeholder={localStorage
+                        .getItem("user-lastName")
+                        .slice(0,1) === '"' ?
+                        localStorage
+                        .getItem("user-lastName")
+                        .slice(1, -1) :
+                        localStorage
+                        .getItem("user-lastName")}
+                      type="text"
+                      name="lastName"
+                      onChange={this.handleChange}
+                    />
+                    <button className="edit-button" type="submit">
+                      Save!
+                    </button>
+                  </div>
                 </div>
-                <div className="inputbox-editUser">
-                  <h5>Last Name</h5>
-                  <input
-                    className="inputbox userLastName"
-                    id="inputbox-userprofile"
-                    placeholder={localStorage
-                      .getItem("user-lastName")
-                      .slice(1, -1)}
-                    type="text"
-                    name="lastName"
-                    onChange={this.handleChange}
-                  />
-                  <button className="edit-button" type="submit">
-                    Save!
-                  </button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
 }
 
 export default UserProfile;
