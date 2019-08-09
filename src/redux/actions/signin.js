@@ -9,8 +9,12 @@ export const signin = (data) => {
         axios
             .post(`${process.env.REACT_APP_API_URL}/users/signin`, data)
             .then((res) => {
+                // console.log(this.props)
+                
                 window.localStorage.setItem('user-id',JSON.stringify(res.data.data.users.id))
                 window.localStorage.setItem('user-firstName',JSON.stringify(res.data.data.users.firstName))
+                window.localStorage.setItem('user-lastName',JSON.stringify(res.data.data.users.lastName))
+                window.localStorage.setItem('token',res.data.data.token)
                 history.push("/main");
                 window.location.reload();
                 dispatch({
