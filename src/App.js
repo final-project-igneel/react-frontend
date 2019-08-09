@@ -7,7 +7,7 @@ import FAQPage from "./components/FAQPage";
 import SignupPage from "./components/SignupPage";
 import LoginPage from "./components/LoginPage";
 import { Provider } from "react-redux";
-
+import CategoryPage from './components/CategoryPage'
 import AboutUs from './components/AboutUs';
 
 import configureStore from './redux/store'
@@ -26,6 +26,7 @@ function App() {
                         <Route path={"/FAQ/:id"} component={FAQPage} />
                         <Route path={"/threads/:id"} component={QAPage} />
                         <Route path={"/About_Us"} component={AboutUs} />
+                        <Route path={'/category/:categoryName'} component={CategoryPage} />
                     </Switch>
                 </BrowserRouter>
             </React.Fragment>

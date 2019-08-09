@@ -134,7 +134,7 @@ class MainPage extends React.Component {
               </div> */}
           <div id="main-content">
             <div>
-              <MainContent ref="mainContent" category=""/>
+              <MainContent ref="mainContent" category={`/category/${this.props.match.params.categoryName}`}/>
             </div>
             <div id="news-container">
               <Videos />
