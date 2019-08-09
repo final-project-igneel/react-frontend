@@ -3,8 +3,8 @@ import NavBar from "./NavBar";
 import BigetronAbout from "../images/BigetronAboutUs.png";
 
 
-import GithubIcon from "../images/facebookicon.png";
-import LinkinIcon from "../images/googleicon.png";
+import GithubIcon from "../images/Github.png";
+import LinkinIcon from "../images/Linkin.png";
 // import Photo from "../images/logo.png";
 import Logo from "../images/logo.png";
 
@@ -71,16 +71,18 @@ const AboutUs = () => {
                                 <h3>Adit Ilham Nugroho</h3>
                                 <p> As Lead Project & Full Stack Developers</p>
                                 <p>
-                                    <img
+                                    <a href="https://github.com/aditilham">
+                                        <img
                                         className='Githubicon'
                                         src={GithubIcon}
                                         alt='icon'
-                                    />{" "}
-                                    <img
+                                    /></a>{" "}
+                                    <a href="https://id.linkedin.com/in/adit-ilham">
+                                        <img
                                         className='Linkinicon'
                                         src={LinkinIcon}
                                         alt='icon'
-                                    />
+                                    /></a>
                                 </p>
                             </div>
                         </tr>
@@ -100,16 +102,18 @@ const AboutUs = () => {
                                 <h3>Abdullah Zaky </h3>
                                 <p> As Designer & Front End Developers </p>
                                 <p>
+                                    <a href="https://github.com/zakysyahab14">
                                     <img
                                         className='Githubicon'
                                         src={GithubIcon}
                                         alt='icon'
-                                    />{" "}
-                                    <img
+                                    /></a>{" "}
+                                    <a href="https://www.linkedin.com/in/zakysyahab14/"><img
                                         className='Linkinicon'
                                         src={LinkinIcon}
                                         alt='icon'
-                                    />
+                                        
+                                    /></a>
                                 </p>
                             </div>
                         </tr>
@@ -160,16 +164,18 @@ const AboutUs = () => {
                                 <h3>Farhan Krishna Rowter</h3>
                                 <p> As Full Stack Developers</p>
                                 <p>
+                                    <a href="https://github/krowter">
                                     <img
                                         className='Githubicon'
                                         src={GithubIcon}
                                         alt='icon'
-                                    />{" "}
-                                    <img
+                                    /></a>{" "}
+                                    <a href="https://id.linkedin.com/in/krowter">
+                                        <img
                                         className='Linkinicon'
                                         src={LinkinIcon}
                                         alt='icon'
-                                    />
+                                    /></a>
                                 </p>
                             </div>
                         </tr>
