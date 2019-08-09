@@ -1,7 +1,7 @@
 let display = false;
 let display2 = false;
 const states = [
-  ["&equiv;", "-500px", "0", "", "black", "0", "ASK", "-140px", "none", "none",'none','450px','0','0'],
+  ["&equiv;", "-500px", "0", "", "black", "0", "ASK", "-140px", "none", "none",'none','450px','0','0',''],
   [
     "&times",
     "0",
@@ -16,7 +16,8 @@ const states = [
     'inline',
     '300px',
     '100px',
-    '15px'
+    '15px',
+    ""
   ]
 ];
 
@@ -34,6 +35,7 @@ export let toggleAskBar = async () => {
   display2 = !display2;
   select("askbar").style.height = states[+display2][2];
   select('askbox-details').style.height = '0'
+  select('askbox-details').value = ''
     select('askbox-details').style.padding = '0'
   if (select('askbox-details').style.display === 'block') select('askbox-details').style.display = 'none';
   setTimeout(() => {

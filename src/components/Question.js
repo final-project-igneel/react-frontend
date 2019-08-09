@@ -3,32 +3,15 @@ import NotClicked from "../images/likeButtonTransparent.svg";
 import Clicked from "../images/likeButtonRed.svg";
 import CommentNotClicked from "../images/commentButtonTransparent.svg";
 import CommentClicked from "../images/commentButtonRed.svg";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 import axios from "axios";
 import Comment from "./Comment";
+import Swal from "sweetalert2";
 
-//style buat react link
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: black;
-  transition: 0.1s;
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
 
-  &:hover {
-    font-size: 20px;
-  }
-`;
 
-let temporaryUserId = '-1'//nanti diganti pas pakai JWT
-if(JSON.parse(localStorage.getItem('user-id'))!=null) {
-  temporaryUserId = parseInt(JSON.parse(localStorage.getItem('user-id')))
+let temporaryUserId = "-1"; //nanti diganti pas pakai JWT
+if (JSON.parse(localStorage.getItem("user-id")) != null) {
+  temporaryUserId = parseInt(JSON.parse(localStorage.getItem("user-id")));
 }
 
 class Question extends React.Component {
@@ -42,7 +25,9 @@ class Question extends React.Component {
       likeButtonClicked: false,
       commentButtonClicked: false,
       comments: [],
-      commentBoxText: ""
+      commentBoxText: "",
+      askerId: 0,
+      questionString: ""
     };
   }
 
@@ -53,7 +38,8 @@ class Question extends React.Component {
         String(temporaryUserId)
       )
         ? true
-        : false
+        : false,
+      questionString: this.props.data.title
     });
   }
 
@@ -90,7 +76,7 @@ class Question extends React.Component {
     });
 
     this.getCommentData();
-    console.log(this.props.data)
+    console.log(this.props.data);
   };
 
   toggleLikeButton = () => {
@@ -115,21 +101,112 @@ class Question extends React.Component {
         userId: temporaryUserId
       })
 
-      .then(response => {
-        
-      })
+      .then(response => {})
       .catch(error => console.log(error));
+  };
+
+  handleDelete = async () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then(result => {
+      if (result.value) {
+        Swal.fire(
+          "Deleted!",
+          "Your question has been deleted.",
+          "success"
+        ).then(res => {
+          window.location.reload();
+        });
+        axios
+          .delete(
+            `${process.env.REACT_APP_API_URL}/threads/delete/${
+              this.props.data.id
+            }`
+          )
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    });
+  };
+
+  editQuestion = target => {
+    Swal.fire({
+      title: "Edit your question",
+      inputValue: this.state.questionString,
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off"
+      },
+      showCancelButton: true,
+      confirmButtonText: "Confirm changes",
+      showLoaderOnConfirm: true,
+      preConfirm: (newText) => {
+        axios
+        .put(
+          `${process.env.REACT_APP_API_URL}/threads/edit/${this.props.data.id}`,
+          { newTitle: newText }
+        )
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    })
+    .then(result => {
+      if (result.value) {
+        Swal.fire({
+          title: `Your question has been updated`,
+          imageUrl: result.value.avatar_url
+        })
+        .then(() => {
+          window.location.reload()
+        })
+      }
+    });
   };
 
   render() {
     return (
       <div className="question" key={this.props.data.id}>
-        <StyledLink
-          to={`/threads/${this.props.data.id}`}
-          style={{ textDecoration: "none" }}
-        >
-          <h2 className="question-title"> {this.props.data.title}</h2>
-        </StyledLink>
+        {this.props.data.userId === temporaryUserId && (
+          <button
+            className="delete-question-button"
+            onClick={this.handleDelete}
+          >
+            X
+          </button>
+        )}
+        {this.props.data.userId === temporaryUserId && (
+          <h2
+            className="question-title editable-question"
+            onKeyPress={this.handleKeyPress}
+            onClick={this.editQuestion}
+            onMouseEnter={this}
+            contentEditable={false}
+          >
+            {" "}
+            {this.props.data.title}
+          </h2>
+        )}
+        {this.props.data.userId !== temporaryUserId && (
+          <h2 className="question-title" onKeyPress={this.handleKeyPress}>
+            {" "}
+            {this.props.data.title}
+          </h2>
+        )}
         <h4> {this.props.data.input}</h4>
         <img
           alt="like-button"
