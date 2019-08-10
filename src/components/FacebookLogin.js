@@ -8,7 +8,6 @@ import axios from "axios";
 
 class FacebookLoginButton extends React.Component {
   responseFacebook = response => {
-    console.log(response);
 
     this.props.history.push("/main");
     axios

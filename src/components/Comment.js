@@ -21,7 +21,6 @@ class Comment extends React.Component {
     if (this.state.commentBoxText === "") {
       alert("Please enter something before submitting comment");
     } else {
-      console.log(this.state.commentBoxText);
       axios
         .post(`${process.env.REACT_APP_API_URL}/comments/create`, {
           userid: this.props.userid,
@@ -52,7 +51,6 @@ class Comment extends React.Component {
   };
 
   render() {
-    console.log(this.props.commentsData)
     return (
       <React.Fragment>
         <div

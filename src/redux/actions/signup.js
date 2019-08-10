@@ -22,14 +22,11 @@ export const signupUserError = error => ({
 });
 
 export const signupUser = payload => {
-    console.log(payload);
     return dispatch => {
         dispatch(signupUserBegin());
         axios
             .post(`${process.env.REACT_APP_API_URL}/users/signup`, payload)
             .then(response => {
-                console.log("test123");
-                console.info("response:", response);
                 dispatch(signupUserSuccess(response));
                 message.success("Signup success");
                 return response;

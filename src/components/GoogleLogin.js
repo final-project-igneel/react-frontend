@@ -33,7 +33,6 @@ const GoogleLoginButton = props => {
             })
             .then(response => {
               if (response.status === 201) {
-                console.log(response)
                 localStorage.setItem("user-id", response.data.data.users.id);
                 localStorage.setItem("user-firstName", response.data.data.users.firstName);
                 localStorage.setItem("user-lastName", response.data.data.users.lastName);

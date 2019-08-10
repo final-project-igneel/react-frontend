@@ -9,7 +9,6 @@ const fetchThread = () => dispatch => {
                     type: "FETCH_THREAD",
                     payload: res.data.threads
                 },
-                console.log(res.data.threads)
             )
         )
         .catch(err => console.log(err));

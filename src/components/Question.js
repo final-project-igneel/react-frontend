@@ -76,7 +76,6 @@ class Question extends React.Component {
     });
 
     this.getCommentData();
-    console.log(this.props.data);
   };
 
   toggleLikeButton = () => {

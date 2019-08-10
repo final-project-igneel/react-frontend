@@ -69,7 +69,6 @@ class MainPage extends React.Component {
 
     if (this.state.inputBoxDetails === "") {
       alert("Please add more details to your question");
-      console.log(temporaryUserId);
     } else {
       toggleAskBar();
       await axios
