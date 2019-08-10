@@ -108,7 +108,7 @@ export class UserProfile extends React.Component {
               <img src={ProfilePhoto} id="profile-photo" alt="profile" />
               <h2>
                 {localStorage.getItem("user-firstName").slice(0,1) === '"' &&
-                  localStorage.getItem("user-firstName").slice(1, -1)}
+                  localStorage.getItem("user-firstName").slice(1, -1)}{" "}
                 {localStorage.getItem("user-lastName").slice(0,1) === '"' &&
                 localStorage.getItem("user-lastName").slice(1, -1)}
               </h2>
@@ -130,7 +130,7 @@ export class UserProfile extends React.Component {
                       id="inputbox-userprofile"
                       placeholder={localStorage
                         .getItem("user-firstName")
-                        .slice(0,1) ?
+                        .slice(0,1) === '"'?
                         localStorage
                         .getItem("user-firstName")
                         .slice(1, -1) :
